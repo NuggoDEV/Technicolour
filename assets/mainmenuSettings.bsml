@@ -1,0 +1,3 @@
+<bg id='root' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:noNamespaceSchemaLocation='https://raw.githubusercontent.com/RedBrumbler/Quest-BSML-Docs/gh-pages/schema.xsd'>
+    <list-setting text="Colour Boost" value="ColourBoost" choices="ColourBoostChoices" apply-on-change="true" hover-hint="The higher the number, the brighter the colours!" formatter="float"/>
+</bg>
