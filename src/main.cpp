@@ -2,6 +2,8 @@
 #include "ModConfig.hpp"
 #include "Hooks.hpp"
 
+#include "chroma/shared/CoreAPI.hpp"
+
 #include "assets.hpp"
 #include "bsml/shared/BSML.hpp"
 #include "bsml/shared/BSMLDataCache.hpp"
@@ -46,6 +48,8 @@ extern "C" void load() {
 
     getLogger().info("Installing Technicolour Hooks.");
     Hooks::InstallHooks(getLogger());
+    Chroma::CoreAPI::addForceEnableChromaHooks(modInfo);
+    Modloader::requireMod("Chroma");
     getLogger().info("Installed all Technicolour Hooks!");
 }
 

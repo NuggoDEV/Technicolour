@@ -1,8 +1,8 @@
 <bg id='root' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:noNamespaceSchemaLocation='https://raw.githubusercontent.com/RedBrumbler/Quest-BSML-Docs/gh-pages/schema.xsd'>
-    <!--<list-setting text="Colour Boost" value="ColourBoost" choices="ColourBoostChoices" apply-on-change="true" hover-hint="The higher the number, the brighter the colours!" formatter="float"/>-->
-    <vertical pref-width='60' pref-height='50' bg='round-rect-panel' vertical-fit='PreferredSize' pad='2'>
-        <text text="Holy shit it's" align='Center' font-size='8'/>
-        <img src='#CamelliaCover' preserve-aspect='true' pref-width='40' pref-height='40'/>
-        <text text="it's camellia" align='Center' font-size='8'/>
+    <vertical pref-width='100' pref-height='58' bg='round-rect-panel' vertical-fit='PreferredSize' pad='2'>
+        <dropdown-list-setting text="Sabers Style" value="TechniSabers" apply-on-change="true" options="TechniSabersChoice" />
+        <dropdown-list-setting text="Notes Style" value="TechniNotes" apply-on-change="true" options="TechniNotesChoice" />
+        <dropdown-list-setting text="Bombs Style" value="TechniBombs" apply-on-change="true" options="TechniBombsChoice" />
+        <dropdown-list-setting text="Walls Style" value="TechniWalls" apply-on-change="true" options="TechniWallsChoice" />
     </vertical>
 </bg>

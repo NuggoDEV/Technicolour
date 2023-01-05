@@ -2,8 +2,10 @@
 using namespace Technicolour::UI::MainMenuSetup;
 
 #include "ModConfig.hpp"
-#include "bsml/shared/BSML.hpp"
 #include "assets.hpp"
+#include "bsml/shared/BSML.hpp"
+#include "bsml/shared/BSML/Components/Settings/DropdownListSetting.hpp"
+using namespace BSML;
 
 DEFINE_TYPE(Technicolour::UI::MainMenuSetup, TechniView);
 
@@ -14,5 +16,18 @@ namespace Technicolour::UI::MainMenuSetup
         if (!firstActivation) return;
 
         BSML::parse_and_construct(IncludedAssets::mainmenuSettings_bsml, this->get_transform(), this);
+
     }
+
+    StringW TechniView::get_TechniSabers() { return getModConfig().TechniSabers.GetValue(); }
+    void TechniView::set_TechniSabers(StringW value) { value->ToString(); getModConfig().TechniSabers.SetValue(value); }
+
+    StringW TechniView::get_TechniNotes() { return getModConfig().TechniNotes.GetValue(); }
+    void TechniView::set_TechniNotes(StringW value) { value->ToString(); getModConfig().TechniNotes.SetValue(value); }
+
+    StringW TechniView::get_TechniBombs() { return getModConfig().TechniBombs.GetValue(); }
+    void TechniView::set_TechniBombs(StringW value) { value->ToString(); getModConfig().TechniBombs.SetValue(value); }
+
+    StringW TechniView::get_TechniWalls() { return getModConfig().TechniWalls.GetValue(); }
+    void TechniView::set_TechniWalls(StringW value) { value->ToString(); getModConfig().TechniWalls.SetValue(value); }
 }
