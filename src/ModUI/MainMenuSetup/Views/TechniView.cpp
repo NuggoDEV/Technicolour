@@ -18,6 +18,10 @@ namespace Technicolour::UI::MainMenuSetup
         BSML::parse_and_construct(IncludedAssets::mainmenuSettings_bsml, this->get_transform(), this);
 
     }
+    
+    bool TechniView::get_ModToggle() { return getModConfig().ModToggle.GetValue(); }
+    void TechniView::set_ModToggle(bool value) { getModConfig().ModToggle.SetValue(value); }
+
 
     StringW TechniView::get_TechniSabers() { return getModConfig().TechniSabers.GetValue(); }
     void TechniView::set_TechniSabers(StringW value) { value->ToString(); getModConfig().TechniSabers.SetValue(value); }
