@@ -26,7 +26,7 @@ using namespace UnityEngine;
 #include "chroma/shared/NoteAPI.hpp"
 #include "chroma/shared/ObstacleAPI.hpp"
 
-Color GetRandomColour()
+Sombrero::FastColor GetRandomColour()
 {
     std::random_device rd;
     std::mt19937 gen(rd());
@@ -36,7 +36,7 @@ Color GetRandomColour()
     float saturation = 1.0f;
     float value = 1.0f;
 
-    Color colour = Color::HSVToRGB(hue, saturation, value);
+    Sombrero::FastColor colour = Color::HSVToRGB(hue, saturation, value);
     return colour;
 }
 
@@ -46,9 +46,6 @@ Vector3 jumpEndPos, float moveDuration, float jumpDuration, float jumpGravity, f
 {
     NoteController_Init(self, noteData, worldRotation, moveStartPos, moveEndPos, jumpEndPos, moveDuration, 
     jumpDuration, jumpGravity, endRotation, uniformScale, rotateTowardsPlayer, useRandomRotation);
-
-    Color leftColour = Color(rand()%257, rand()%257, rand()%257, 1);
-    Color rightColour = Color(rand()%257, rand()%257, rand()%257, 1);
 
     if (getModConfig().ModToggle.GetValue() && getModConfig().TechniNotes.GetValue() == "True Random" && noteData->colorType == ColorType::ColorA)
         Chroma::NoteAPI::setInitialNoteControllerColorSafe(self, GetRandomColour());
