@@ -10,6 +10,9 @@
 #include "GlobalNamespace/ObstacleController.hpp"
 #include "GlobalNamespace/ObstacleData.hpp"
 #include "GlobalNamespace/ColorType.hpp"
+
+#include "GlobalNamespace/LightSwitchEventEffect.hpp"
+#include "GlobalNamespace/BasicBeatmapEventData.hpp"
 using namespace GlobalNamespace;
 
 #include "UnityEngine/Color.hpp"
@@ -25,6 +28,7 @@ using namespace UnityEngine;
 #include "chroma/shared/BombAPI.hpp"
 #include "chroma/shared/NoteAPI.hpp"
 #include "chroma/shared/ObstacleAPI.hpp"
+#include "chroma/shared/LightAPI.hpp"
 
 Sombrero::FastColor GetRandomColour()
 {
@@ -71,3 +75,4 @@ Vector3 startPos, Vector3 midPos, Vector3 endPos, float move1Duration, float mov
     if (getModConfig().ModToggle.GetValue() && getModConfig().TechniWalls.GetValue() == "True Random")
         Chroma::ObstacleAPI::setObstacleColorSafe(self, GetRandomColour());
 }
+

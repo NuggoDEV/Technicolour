@@ -42,6 +42,7 @@ extern "C" void load() {
 
     getLogger().info("Initializing Config & UI.");
     getModConfig().Init(modInfo);
+    BSML::Init();
     BSML::Register::RegisterGameplaySetupTab("Technicolour", MOD_ID "_settings", Technicolour::UI::Gameplay::UIManager::get_instance(), BSML::MenuType::All);
     manager.Init();
     getLogger().info("Initialized Config & UI Successfully!");

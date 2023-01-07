@@ -1,6 +1,5 @@
 <bg id='root' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:noNamespaceSchemaLocation='https://raw.githubusercontent.com/RedBrumbler/Quest-BSML-Docs/gh-pages/schema.xsd'>
     <modifier-container pref-width="65">
         <modifier src="#HueWheel" value="ModToggle" text="Enable Technicolour" apply-on-change="true" hover-hint="Enables Technicolour! Same as if you just changed from mod settings." />
-        <list-setting text="Colour Boost" value="ColourBoost" choices="ColourBoostChoices" apply-on-change="true" hover-hint="The higher the number, the brighter the colours!" formatter="float"/>
     </modifier-container>
 </bg>

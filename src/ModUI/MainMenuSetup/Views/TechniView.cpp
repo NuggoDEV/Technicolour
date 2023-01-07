@@ -23,9 +23,6 @@ namespace Technicolour::UI::MainMenuSetup
     void TechniView::set_ModToggle(bool value) { getModConfig().ModToggle.SetValue(value); }
 
 
-    StringW TechniView::get_TechniSabers() { return getModConfig().TechniSabers.GetValue(); }
-    void TechniView::set_TechniSabers(StringW value) { value->ToString(); getModConfig().TechniSabers.SetValue(value); }
-
     StringW TechniView::get_TechniNotes() { return getModConfig().TechniNotes.GetValue(); }
     void TechniView::set_TechniNotes(StringW value) { value->ToString(); getModConfig().TechniNotes.SetValue(value); }
 
@@ -34,4 +31,11 @@ namespace Technicolour::UI::MainMenuSetup
 
     StringW TechniView::get_TechniWalls() { return getModConfig().TechniWalls.GetValue(); }
     void TechniView::set_TechniWalls(StringW value) { value->ToString(); getModConfig().TechniWalls.SetValue(value); }
+
+    StringW TechniView::get_TechniLights() { return getModConfig().TechniLights.GetValue(); }
+    void TechniView::set_TechniLights(StringW value) { value->ToString(); getModConfig().TechniLights.SetValue(value); }
+
+
+    float TechniView::get_GradientTime() { return getModConfig().GradientTime.GetValue(); }
+    void TechniView::set_GradientTime(float value) { getModConfig().GradientTime.SetValue(value); }
 }
