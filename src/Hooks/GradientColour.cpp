@@ -1,3 +1,4 @@
+#include "main.hpp"
 #include "Hooks.hpp"
 #include "ModConfig.hpp"
 
@@ -23,39 +24,39 @@ using namespace Sombrero;
 #include "chroma/shared/ObstacleAPI.hpp"
 #include "chroma/shared/LightAPI.hpp"
 
-float leftSaber = 0;
-float rightSaber = 180;
-float other = 90;
-
 int bPos = 0, lPos = 0, rPos = 180, wPos = 0;
 
-
-float * Wheel(int WheelPos) {
+FastColor ColourGen(int ColourPos) {
   static int c[3];
-  static float epic[3];
- 
-  if(WheelPos < 85) {
-   c[0]=WheelPos * 3;
-   c[1]=255 - WheelPos * 3;
-   c[2]=0;
-  } else if(WheelPos < 170) {
-   WheelPos -= 85;
-   c[0]=255 - WheelPos * 3;
-   c[1]=0;
-   c[2]=WheelPos * 3;
+  static float a[3];
+  FastColor epic;
+
+  if(ColourPos < 85) {
+   c[0] = ColourPos * 3;
+   c[1] = 255 - ColourPos * 3;
+   c[2] =0;
+  } else if(ColourPos < 170) {
+   ColourPos -= 85;
+   c[0] = 255 - ColourPos * 3;
+   c[1] =0;
+   c[2] = ColourPos * 3;
   } else {
-   WheelPos -= 170;
-   c[0]=0;
-   c[1]=WheelPos * 3;
-   c[2]=255 - WheelPos * 3;
+   ColourPos -= 170;
+   c[0] =0;
+   c[1] = ColourPos * 3;
+   c[2] =255 - ColourPos * 3;
   }
 
-  epic[0] = (float) c[0] / 255.0;
-  epic[1] = (float) c[1] / 255.0;
-  epic[2] = (float) c[2] / 255.0;
- 
+  a[0] = (float) c[0] / 255.0;
+  a[1] = (float) c[1] / 255.0;
+  a[2] = (float) c[2] / 255.0;
+
+
+  epic = FastColor(a[0], a[1], a[2], 1.0f);
+
   return epic;
 }
+
 
 MAKE_AUTO_HOOK_MATCH(AudioTimeSyncController_Update, &AudioTimeSyncController::Update, void, AudioTimeSyncController *self)
 {
@@ -64,60 +65,43 @@ MAKE_AUTO_HOOK_MATCH(AudioTimeSyncController_Update, &AudioTimeSyncController::U
 
     if (getModConfig().ModToggle.GetValue() && getModConfig().TechniBombs.GetValue() == "Gradient")
     {
-        // Bomb Colour
-        float *Bomb = Wheel(bPos);
-        FastColor bombColour;
-        bombColour.a = 1.0;
-        bombColour.r = Bomb[0];
-        bombColour.g = Bomb[1];
-        bombColour.b = Bomb[2];
-
-        Chroma::BombAPI::setGlobalBombColorSafe(bombColour);
-        bPos++;
-        if (bPos > 255)
-            bPos = 0;
+      // Bomb Colour
+      FastColor Bomb = ColourGen(bPos);
+      Chroma::BombAPI::setGlobalBombColorSafe(Bomb);
+      bPos++;
+      if (bPos > 255)
+        bPos =0;
     }
     
-
     if (getModConfig().ModToggle.GetValue() && getModConfig().TechniNotes.GetValue() == "Gradient")
     {
-        // Left & Right Colour
-        float *lNote = Wheel(lPos);
-        FastColor leftColour;
-        leftColour.a = 1.0;
-        leftColour.r = lNote[0];
-        leftColour.g = lNote[1];
-        leftColour.b = lNote[2];
+      // Left & Right Colour
+      FastColor LeftColour = ColourGen(lPos);
+      FastColor RightColour = ColourGen(rPos);
 
-        float *rNote = Wheel(rPos);
-        FastColor rightColour;
-        rightColour.a = 1.0;
-        rightColour.r = rNote[0];
-        rightColour.g = rNote[1];
-        rightColour.b = rNote[2];
-
-        Chroma::NoteAPI::setGlobalNoteColorSafe(leftColour, rightColour);
-        if (lPos > 255)
-            lPos = 0;
-        if (rPos > 255)
-            rPos = 0;
+      Chroma::NoteAPI::setGlobalNoteColorSafe(LeftColour, RightColour);
+      lPos++;
+      rPos++;
+      if (lPos > 255)
+        lPos = 0;
+      if (rPos > 255)
+        rPos = 0;
     }
 
 
     if (getModConfig().ModToggle.GetValue() && getModConfig().TechniWalls.GetValue() == "Gradient")
     {
         // Wall Colour
-        float *Wall = Wheel(wPos);
+        FastColor Wall = ColourGen(wPos);
         FastColor wallColour;
-        wallColour.a = 1.0;
-        wallColour.r = Wall[0];
-        wallColour.g = Wall[1];
-        wallColour.b = Wall[2];
+
 
         Chroma::ObstacleAPI::setAllObstacleColorSafe(wallColour);
+        wPos++;
         if (wPos > 255)
-            wPos = 0;
+          wPos = 0;
     }
 
 
 }
+
