@@ -19,12 +19,13 @@ using namespace Sombrero;
 
 #include <cmath>
 
+#include "chroma/shared/SaberAPI.hpp"
 #include "chroma/shared/BombAPI.hpp"
 #include "chroma/shared/NoteAPI.hpp"
 #include "chroma/shared/ObstacleAPI.hpp"
 #include "chroma/shared/LightAPI.hpp"
 
-int bPos = 0, lPos = 0, rPos = 180, wPos = 0;
+int bPos = 45, lPos = 0, rPos = 180, wPos = 90;
 
 FastColor ColourGen(int ColourPos) {
   static int c[3];
@@ -80,6 +81,8 @@ MAKE_AUTO_HOOK_MATCH(AudioTimeSyncController_Update, &AudioTimeSyncController::U
       FastColor RightColour = ColourGen(rPos);
 
       Chroma::NoteAPI::setGlobalNoteColorSafe(LeftColour, RightColour);
+      Chroma::SaberAPI::setGlobalSaberColorSafe(SaberType::SaberA, LeftColour);
+      Chroma::SaberAPI::setGlobalSaberColorSafe(SaberType::SaberB, RightColour);
       lPos++;
       rPos++;
       if (lPos > 255)
