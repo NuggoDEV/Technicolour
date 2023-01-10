@@ -9,7 +9,7 @@
 DECLARE_CLASS_CODEGEN(Technicolour::UI::Gameplay, UIManager, Il2CppObject,
     DECLARE_INSTANCE_FIELD(HMUI::ViewController*, settingsViewController);
 
-    //DECLARE_BSML_PROPERTY(bool, ModToggle);
+    DECLARE_BSML_PROPERTY(bool, ModToggle);
 
     DECLARE_CTOR(ctor);
     public:

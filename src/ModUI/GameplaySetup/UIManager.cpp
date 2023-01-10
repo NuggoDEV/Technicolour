@@ -15,6 +15,6 @@ namespace Technicolour::UI::Gameplay
     void UIManager::ctor() { }
 
 
-    //bool UIManager::get_ModToggle() { getModConfig().ModToggle.GetValue(); }
-    //void UIManager::set_ModToggle(bool value) { getModConfig().ModToggle.SetValue(value); }
+    bool UIManager::get_ModToggle() { return getModConfig().ModToggle.GetValue(); }
+    void UIManager::set_ModToggle(bool value) { getModConfig().ModToggle.SetValue(value); }
 }
