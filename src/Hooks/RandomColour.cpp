@@ -1,5 +1,7 @@
 #include "Hooks.hpp"
 #include "ModConfig.hpp"
+#include "Controllers/RandomController.hpp"
+using namespace Technicolour::Controllers;
 
 #include "GlobalNamespace/NoteController.hpp"
 #include "GlobalNamespace/NoteData.hpp"
@@ -30,19 +32,6 @@ using namespace UnityEngine;
 #include "chroma/shared/ObstacleAPI.hpp"
 #include "chroma/shared/LightAPI.hpp"
 
-Sombrero::FastColor GetRandomColour()
-{
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_real_distribution<> dis(0.0, 1.0);
-
-    float hue = dis(gen);
-    float saturation = 1.0f;
-    float value = 1.0f;
-
-    Sombrero::FastColor colour = Color::HSVToRGB(hue, saturation, value);
-    return colour;
-}
 
 
 MAKE_AUTO_HOOK_MATCH(NoteController_Init, &NoteController::Init, void, NoteController *self, NoteData *noteData, float worldRotation, Vector3 moveStartPos, Vector3 moveEndPos, 
@@ -52,9 +41,10 @@ Vector3 jumpEndPos, float moveDuration, float jumpDuration, float jumpGravity, f
     jumpDuration, jumpGravity, endRotation, uniformScale, rotateTowardsPlayer, useRandomRotation);
 
     if (getModConfig().ModToggle.GetValue() && getModConfig().TechniNotes.GetValue() == "True Random" && noteData->colorType == ColorType::ColorA)
-        Chroma::NoteAPI::setInitialNoteControllerColorSafe(self, GetRandomColour());
+        Chroma::NoteAPI::setInitialNoteControllerColorSafe(self, RandomColourGen());
+
     else if (getModConfig().ModToggle.GetValue() && getModConfig().TechniNotes.GetValue() == "True Random" && noteData->colorType == ColorType::ColorB)
-        Chroma::NoteAPI::setInitialNoteControllerColorSafe(self, GetRandomColour());
+        Chroma::NoteAPI::setInitialNoteControllerColorSafe(self, RandomColourGen());
 
 }
 
@@ -64,7 +54,7 @@ Vector3 moveStartPos, Vector3 moveEndPos, Vector3 jumpEndPos, float moveDuration
     BombController_Init(self, noteData, worldRotation, moveStartPos, moveEndPos, jumpEndPos, moveDuration, jumpDuration, jumpGravity);
 
     if (getModConfig().ModToggle.GetValue() && getModConfig().TechniBombs.GetValue() == "True Random")
-        Chroma::BombAPI::setBombColorSafe(self, GetRandomColour());
+        Chroma::BombAPI::setBombColorSafe(self, RandomColourGen());
 }
 
 MAKE_AUTO_HOOK_MATCH(ObstacleController_Init, &ObstacleController::Init, void, ObstacleController *self, ObstacleData *obstacleData, float worldRotation, 
@@ -73,6 +63,6 @@ Vector3 startPos, Vector3 midPos, Vector3 endPos, float move1Duration, float mov
     ObstacleController_Init(self, obstacleData, worldRotation, startPos, midPos, endPos, move1Duration, move2Duration, singleLineWidth, height);
 
     if (getModConfig().ModToggle.GetValue() && getModConfig().TechniWalls.GetValue() == "True Random")
-        Chroma::ObstacleAPI::setObstacleColorSafe(self, GetRandomColour());
+        Chroma::ObstacleAPI::setObstacleColorSafe(self, RandomColourGen());
 }
 
