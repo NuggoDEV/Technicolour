@@ -17,7 +17,7 @@ void Technicolour::UI::MainMenuSetup::TechniFlow::DidActivate(bool firstActivati
 
         showBackButton = true;
         ProvideInitialViewControllers(TechniView, nullptr, nullptr, nullptr, nullptr);
-        SetTitle("Technicolour Settings", ViewController::AnimationType::In);
+        SetTitle("DEV_Technicolour Settings", ViewController::AnimationType::In);
     }
 }
 
