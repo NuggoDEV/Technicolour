@@ -24,10 +24,10 @@ namespace Technicolour::UI::Gameplay
 
     void UIManager::OpenTechnicolour()
     {
-        HMUI::FlowCoordinator *flowCoordinator;
-        auto techniFlow = UnityEngine::Resources::FindObjectsOfTypeAll<Technicolour::UI::MainMenuSetup::TechniFlow *>().FirstOrDefault();
+        auto currentFlow = QuestUI::BeatSaberUI::GetMainFlowCoordinator()->YoungestChildFlowCoordinatorOrSelf();
+        auto techniFlow = QuestUI::BeatSaberUI::CreateFlowCoordinator<Technicolour::UI::MainMenuSetup::TechniFlow*>();
 
-        flowCoordinator->PresentFlowCoordinator(techniFlow, nullptr, HMUI::ViewController::AnimationDirection::Horizontal, HMUI::ViewController::AnimationType::Out, false);
+        currentFlow->PresentFlowCoordinator(techniFlow, nullptr, HMUI::ViewController::AnimationDirection::Horizontal, HMUI::ViewController::AnimationType::Out, false);
     }
 
 
