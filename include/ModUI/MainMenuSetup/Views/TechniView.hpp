@@ -13,6 +13,10 @@
 DECLARE_CLASS_CODEGEN(Technicolour::UI::MainMenuSetup, TechniView, HMUI::ViewController,
     DECLARE_OVERRIDE_METHOD(void, DidActivate, il2cpp_utils::FindMethodUnsafe("HMUI", "ViewController", "DidActivate", 3), bool firstActivation, bool addedToHierarchy, bool screenSystemEnabling);
 
+    DECLARE_INSTANCE_METHOD(void, StylesDefault);
+    DECLARE_INSTANCE_METHOD(void, MiscDefault);
+    DECLARE_INSTANCE_METHOD(void, AllDefault);
+
     BSML_OPTIONS_LIST_STRING(TechniNotesChoice, "Off", "Warm/Cold", "True Random", "Gradient");
     BSML_OPTIONS_LIST_STRING(TechniBombsChoice, "Off", "True Random", "Gradient");
     BSML_OPTIONS_LIST_STRING(TechniWallsChoice, "Off", "True Random", "Gradient");
@@ -25,5 +29,11 @@ DECLARE_CLASS_CODEGEN(Technicolour::UI::MainMenuSetup, TechniView, HMUI::ViewCon
     DECLARE_BSML_PROPERTY(StringW, TechniWalls);
     DECLARE_BSML_PROPERTY(StringW, TechniLights);
 
-    DECLARE_BSML_PROPERTY(float, GradientTime);
+    DECLARE_BSML_PROPERTY(float, LeftGradientOffset);
+    DECLARE_BSML_PROPERTY(float, RightGradientOffset);
+    DECLARE_BSML_PROPERTY(float, BombGradientOffset);
+    DECLARE_BSML_PROPERTY(float, WallGradientOffset);
+
+    DECLARE_BSML_PROPERTY(float, LeftWarmOffset);
+    DECLARE_BSML_PROPERTY(float, RightCoolOffset);
 )

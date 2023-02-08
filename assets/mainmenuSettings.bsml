@@ -1,22 +1,39 @@
 <bg id='root' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:noNamespaceSchemaLocation='https://raw.githubusercontent.com/RedBrumbler/Quest-BSML-Docs/gh-pages/schema.xsd'>
     <tab-selector tab-tag="tabs"/>
 
-    <horizontal pref-width='58' pref-height='60' bg='round-rect-panel' vertical-fit='PreferredSize' pad='2'>
+    <horizontal pref-width='35' pref-height='60' bg='round-rect-panel' vertical-fit='PreferredSize' pad='2'>
 
         <tab tab-name="Styles" tags="tabs">
             <vertical>
                 <toggle-setting text="Enable Technicolour" value="ModToggle" apply-on-change="true"/>
                 
-
                 <dropdown-list-setting text="Notes Style" value="TechniNotes" apply-on-change="true" options="TechniNotesChoice" />
                 <dropdown-list-setting text="Bombs Style" value="TechniBombs" apply-on-change="true" options="TechniBombsChoice" />
                 <dropdown-list-setting text="Walls Style" value="TechniWalls" apply-on-change="true" options="TechniWallsChoice" />
                 <dropdown-list-setting text="Lights Style" value="TechniLights" apply-on-change="true" options="TechniLightsChoice" />
+
+                <horizontal>
+                    <button text="Reset to Page Default" on-click="StylesDefault" min-width="45"/>
+                    <button text="Reset all Default" on-click="AllDefault" min-width="40"/>
+                </horizontal>
             </vertical>
         </tab>
         <tab tab-name="Misc" tags="tabs">
             <vertical>
-                <increment-setting text="Gradient Colour Time" value="GradientTime" apply-on-change="true" />
+
+                <!-- Add reset to default for all of these -->
+                <increment-setting text="Left Note Gradient Offset" value="LeftGradientOffset" min="1" max="254" apply-on-change="true" hover-hint="Lets you mess with the colour offset!"/>
+                <increment-setting text="Right Note Gradient Offset" value="RightGradientOffset" min="1" max="254" apply-on-change="true" hover-hint="Lets you mess with the colour offset!"/>
+                <increment-setting text="Bomb Gradient Offset" value="BombGradientOffset" min="1" max="254" apply-on-change="true" hover-hint="Lets you mess with the colour offset!"/>
+                <increment-setting text="Wall Gradient Offset" value="WallGradientOffset" min="1" max="254" apply-on-change="true" hover-hint="Lets you mess with the colour offset!"/>
+
+                <increment-setting text="Left Note Warm Offset" value="LeftWarmOffset" min="1" max="254" apply-on-change="true" hover-hint="Lets you mess with the colour offset!"/>
+                <increment-setting text="Right Note Cool Offset" value="RightCoolOffset" min="1" max="254" apply-on-change="true" hover-hint="Lets you mess with the colour offset!"/>
+
+                <horizontal>
+                    <button text="Reset to Page Default" on-click="MiscDefault" min-width="45"/>
+                    <button text="Reset all Default" on-click="AllDefault" min-width="40"/>
+                </horizontal>
             </vertical>
         </tab>
     </horizontal>
