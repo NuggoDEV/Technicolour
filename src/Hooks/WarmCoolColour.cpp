@@ -21,6 +21,8 @@ using namespace Sombrero;
 float i;
 float ii;
 
+const int STEPS = 256;
+
 const int NUM_STEPS = 256;
 std::array<FastColor, NUM_STEPS> WarmColours;
 std::array<FastColor, NUM_STEPS> CoolColours;
@@ -65,12 +67,50 @@ void generateColours()
 }
 
 
+/*std::vector<FastColor> warmColours, coolColours;
+
+void PrecomputeWarmColours()
+{
+  warmColours.resize(STEPS + 1);
+  for (int i = 0; i < STEPS; i++)
+  {
+    FastColor colour;
+
+    colour = FastColor::Lerp(FastColor(1.0f, 1.0f, 0.0f), FastColor(0.89f, 0.04f, 0.36f), (float)i / STEPS);
+  }
+}
+
+void PrecomputeCoolColours()
+{
+  coolColours.resize(STEPS + 1);
+  for (int i = 0; i < STEPS; i++)
+  {
+    FastColor colour;
+
+    colour = FastColor::Lerp(FastColor(0.0f, 1.0f, 0.0f), FastColor(1.0f, 0.0f, 1.0f), (float)i / STEPS);
+  }
+}
+
+FastColor WarmGen(int index)
+{
+  return warmColours[index];
+}
+FastColor CoolGen(int index)
+{
+  return coolColours[index];
+}*/
+
+
+
 bool WarmToggle = true, CoolToggle = true;
 
 MAKE_AUTO_HOOK_MATCH(WC_GameplayCoreInstaller_InstallBindings, &GameplayCoreInstaller::InstallBindings, void, GameplayCoreInstaller *self)
 {
   WC_GameplayCoreInstaller_InstallBindings(self);
+
   generateColours();
+  //PrecomputeWarmColours();
+  //PrecomputeCoolColours();
 
   i = getModConfig().LeftWarmOffset.GetValue();
   ii = getModConfig().RightCoolOffset.GetValue();
@@ -82,6 +122,9 @@ MAKE_AUTO_HOOK_MATCH(WC_AudioTimeSyncController_Update, &GlobalNamespace::AudioT
 
   if (getModConfig().ModToggle.GetValue() && getModConfig().TechniNotes.GetValue() == "Warm/Cold")
   {
+    /*FastColor LeftColour = WarmGen(i);
+    FastColor RightColour = CoolGen(ii);*/
+
     FastColor LeftColour = getWarmColour(i);
     FastColor RightColour = getCoolColour(ii);
 
