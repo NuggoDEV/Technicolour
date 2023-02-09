@@ -44,6 +44,30 @@ namespace Technicolour::UI::MainMenuSetup
         MiscDefault();
     }
 
+    void TechniView::ResetLeftGradient() {
+        getModConfig().LeftGradientOffset.SetValue(getModConfig().LeftGradientOffset.GetDefaultValue());
+    }
+
+    void TechniView::ResetRightGradient() {
+        getModConfig().RightGradientOffset.SetValue(getModConfig().RightGradientOffset.GetDefaultValue());
+    }
+
+    void TechniView::ResetBombGradient() {
+        getModConfig().BombGradientOffset.SetValue(getModConfig().BombGradientOffset.GetDefaultValue());
+    }
+
+    void TechniView::ResetWallGradient() {
+        getModConfig().WallGradientOffset.SetValue(getModConfig().WallGradientOffset.GetDefaultValue());
+    }
+
+    void TechniView::ResetLeftWarm() {
+        getModConfig().LeftWarmOffset.SetValue(getModConfig().LeftWarmOffset.GetDefaultValue());
+    }
+
+    void TechniView::ResetRightCool() {
+        getModConfig().RightCoolOffset.SetValue(getModConfig().RightCoolOffset.GetDefaultValue());
+    }
+
     
     bool TechniView::get_ModToggle() { return getModConfig().ModToggle.GetValue(); }
     void TechniView::set_ModToggle(bool value) { getModConfig().ModToggle.SetValue(value); }

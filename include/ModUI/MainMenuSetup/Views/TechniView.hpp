@@ -17,6 +17,14 @@ DECLARE_CLASS_CODEGEN(Technicolour::UI::MainMenuSetup, TechniView, HMUI::ViewCon
     DECLARE_INSTANCE_METHOD(void, MiscDefault);
     DECLARE_INSTANCE_METHOD(void, AllDefault);
 
+    DECLARE_INSTANCE_METHOD(void, ResetLeftGradient);
+    DECLARE_INSTANCE_METHOD(void, ResetRightGradient);
+    DECLARE_INSTANCE_METHOD(void, ResetBombGradient);
+    DECLARE_INSTANCE_METHOD(void, ResetWallGradient);
+
+    DECLARE_INSTANCE_METHOD(void, ResetLeftWarm);
+    DECLARE_INSTANCE_METHOD(void, ResetRightCool);
+
     BSML_OPTIONS_LIST_STRING(TechniNotesChoice, "Off", "Warm/Cold", "True Random", "Gradient");
     BSML_OPTIONS_LIST_STRING(TechniBombsChoice, "Off", "True Random", "Gradient");
     BSML_OPTIONS_LIST_STRING(TechniWallsChoice, "Off", "True Random", "Gradient");
