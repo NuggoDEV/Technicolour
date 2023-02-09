@@ -23,15 +23,14 @@ using namespace Sombrero;
 float bPos;
 float lPos;
 float rPos;
-float wPos;
 
 const int GRADIENT_STEPS = 256;
 
-std::vector<FastColor> gradientColors;
+std::vector<FastColor> gradientColours;
 
-void PrecomputeGradientColors()
+void PrecomputeGradientColours()
 {
-  gradientColors.resize(GRADIENT_STEPS + 1);
+  gradientColours.resize(GRADIENT_STEPS + 1);
   for (int i = 0; i <= GRADIENT_STEPS; ++i) {
     float t = (float)i / GRADIENT_STEPS;
 
@@ -39,30 +38,29 @@ void PrecomputeGradientColors()
     if (t < 0.33f) {
       colour = FastColor::Lerp(FastColor(1.0f, 0.0f, 0.0f, 1.0f), FastColor(1.0f, 1.0f, 0.0f, 1.0f), t * 3.0f);
     } else if (t < 0.66f) {
-      colour = FastColor::Lerp(FastColor(1.0f, 1.0f, 0.0f, 1.0f), FastColor(0.0f, 0.0f, 1.0f, 1.0f), (t - 0.33f) * 3.0f);
+      colour = FastColor::Lerp(FastColor(0.0f, 1.0f, 0.0f, 1.0f), FastColor(0.0f, 0.0f, 1.0f, 1.0f), (t - 0.33f) * 3.0f);
     } else {
       colour = FastColor::Lerp(FastColor(0.0f, 0.0f, 1.0f, 1.0f), FastColor(1.0f, 0.0f, 0.0f, 1.0f), (t - 0.66f) * 3.0f);
     }
 
-    gradientColors[i] = colour;
+    gradientColours[i] = colour;
   }
 }
 
 FastColor GradientGen(int index)
 {
-  return gradientColors[index];
+  return gradientColours[index];
 }
 
 
 MAKE_AUTO_HOOK_MATCH(GameplayCoreInstaller_InstallBindings, &GameplayCoreInstaller::InstallBindings, void, GameplayCoreInstaller *self)
 {
   GameplayCoreInstaller_InstallBindings(self);
-  PrecomputeGradientColors();
+  PrecomputeGradientColours();
 
   bPos = getModConfig().BombGradientOffset.GetValue();
   lPos = getModConfig().LeftGradientOffset.GetValue();
   rPos = getModConfig().RightGradientOffset.GetValue();
-  wPos = getModConfig().WallGradientOffset.GetValue();
 }
 
 MAKE_AUTO_HOOK_MATCH(AudioTimeSyncController_Update, &AudioTimeSyncController::Update, void, AudioTimeSyncController *self)
@@ -95,17 +93,5 @@ MAKE_AUTO_HOOK_MATCH(AudioTimeSyncController_Update, &AudioTimeSyncController::U
       lPos = 0;
     if (rPos > 255)
       rPos = 0;
-  }
-
-  if (getModConfig().ModToggle.GetValue() && getModConfig().TechniWalls.GetValue() == "Gradient")
-  {
-    // Wall Colour
-    FastColor Wall = GradientGen(wPos);
-    FastColor wallColour;
-
-    Chroma::ObstacleAPI::setAllObstacleColorSafe(wallColour);
-    wPos++;
-    if (wPos > 255)
-      wPos = 0;
   }
 }
