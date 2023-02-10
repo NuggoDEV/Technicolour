@@ -77,12 +77,12 @@ MAKE_AUTO_HOOK_MATCH(ObstacleController_Init, &ObstacleController::Init, void, O
 
 MAKE_AUTO_HOOK_MATCH(sdfjhkgf, &LightSwitchEventEffect::HandleColorChangeBeatmapEvent, void, LightSwitchEventEffect *self, BasicBeatmapEventData *basicBeatmapEventData)
 {
-  
+  FastColor colour = RandomColourGen();
 
   //if (getModConfig().ModToggle.GetValue() && getModConfig().TechniLights.GetValue() == "True Random")
   //{
     //Chroma::LightAPI::setAllLightingColorsSafe(true, Chroma::LightAPI::LSEData{RandomColourGen(), RandomColourGen(), RandomColourGen(), RandomColourGen()});
-  Chroma::LightAPI::setLightColorSafe(basicBeatmapEventData->basicBeatmapEventType, true, Chroma::LightAPI::LSEData{RandomColourGen(), RandomColourGen(), RandomColourGen(), RandomColourGen()});
+  Chroma::LightAPI::setLightColorSafe(basicBeatmapEventData->basicBeatmapEventType, true, Chroma::LightAPI::LSEData{colour, colour, colour, colour});
   //}
   sdfjhkgf(self, basicBeatmapEventData);
 }
