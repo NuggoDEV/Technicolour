@@ -1,11 +1,10 @@
 #include "Hooks.hpp"
 #include "ModConfig.hpp"
 
+#include "GlobalNamespace/BombNoteController.hpp"
 #include "GlobalNamespace/NoteController.hpp"
 #include "GlobalNamespace/NoteData.hpp"
 #include "GlobalNamespace/ColorType.hpp"
-
-#include "GlobalNamespace/BombNoteController.hpp"
 
 #include "GlobalNamespace/ObstacleController.hpp"
 #include "GlobalNamespace/ObstacleData.hpp"
@@ -44,6 +43,7 @@ FastColor RandomColourGen()
   return colour;
 }
 
+
 MAKE_AUTO_HOOK_MATCH(NoteController_Init, &NoteController::Init, void, NoteController *self, NoteData *noteData, float worldRotation, Vector3 moveStartPos, Vector3 moveEndPos,
   Vector3 jumpEndPos, float moveDuration, float jumpDuration, float jumpGravity, float endRotation, float uniformScale, bool rotateTowardsPlayer, bool useRandomRotation)
 {
@@ -57,8 +57,9 @@ MAKE_AUTO_HOOK_MATCH(NoteController_Init, &NoteController::Init, void, NoteContr
     Chroma::NoteAPI::setInitialNoteControllerColorSafe(self, RandomColourGen());
 }
 
-MAKE_AUTO_HOOK_MATCH(BombController_Init, &BombNoteController::Init, void, BombNoteController *self, NoteData *noteData, float worldRotation,
-                     Vector3 moveStartPos, Vector3 moveEndPos, Vector3 jumpEndPos, float moveDuration, float jumpDuration, float jumpGravity)
+
+
+MAKE_AUTO_HOOK_MATCH(BombController_Init, &BombNoteController::Init, void, BombNoteController *self, NoteData *noteData, float worldRotation,Vector3 moveStartPos, Vector3 moveEndPos, Vector3 jumpEndPos, float moveDuration, float jumpDuration, float jumpGravity)
 {
   BombController_Init(self, noteData, worldRotation, moveStartPos, moveEndPos, jumpEndPos, moveDuration, jumpDuration, jumpGravity);
 
@@ -66,8 +67,7 @@ MAKE_AUTO_HOOK_MATCH(BombController_Init, &BombNoteController::Init, void, BombN
     Chroma::BombAPI::setBombColorSafe(self, RandomColourGen());
 }
 
-MAKE_AUTO_HOOK_MATCH(ObstacleController_Init, &ObstacleController::Init, void, ObstacleController *self, ObstacleData *obstacleData, float worldRotation,
-                     Vector3 startPos, Vector3 midPos, Vector3 endPos, float move1Duration, float move2Duration, float singleLineWidth, float height)
+MAKE_AUTO_HOOK_MATCH(ObstacleController_Init, &ObstacleController::Init, void, ObstacleController *self, ObstacleData *obstacleData, float worldRotation,Vector3 startPos, Vector3 midPos, Vector3 endPos, float move1Duration, float move2Duration, float singleLineWidth, float height)
 {
   ObstacleController_Init(self, obstacleData, worldRotation, startPos, midPos, endPos, move1Duration, move2Duration, singleLineWidth, height);
 
@@ -77,11 +77,21 @@ MAKE_AUTO_HOOK_MATCH(ObstacleController_Init, &ObstacleController::Init, void, O
 
 MAKE_AUTO_HOOK_MATCH(sdfjhkgf, &LightSwitchEventEffect::HandleColorChangeBeatmapEvent, void, LightSwitchEventEffect *self, BasicBeatmapEventData *basicBeatmapEventData)
 {
-  sdfjhkgf(self, basicBeatmapEventData);
+  
 
-  if (getModConfig().ModToggle.GetValue() && getModConfig().TechniLights.GetValue() == "True Random")
-  {
-    // Chroma::LightAPI::setAllLightingColorsSafe(true, Chroma::LightAPI::LSEData{RandomColourGen(), RandomColourGen(), RandomColourGen(), RandomColourGen()});
-    Chroma::LightAPI::setLightColorSafe(self->event, false, Chroma::LightAPI::LSEData{Sombrero::FastColor(1, 0, 0, 1), Sombrero::FastColor(1, 1, 0, 1), Sombrero::FastColor(1, 0, 1, 1), Sombrero::FastColor(0, 0, 0, 1)});
-  }
+  //if (getModConfig().ModToggle.GetValue() && getModConfig().TechniLights.GetValue() == "True Random")
+  //{
+    //Chroma::LightAPI::setAllLightingColorsSafe(true, Chroma::LightAPI::LSEData{RandomColourGen(), RandomColourGen(), RandomColourGen(), RandomColourGen()});
+  Chroma::LightAPI::setLightColorSafe(basicBeatmapEventData->basicBeatmapEventType, true, Chroma::LightAPI::LSEData{RandomColourGen(), RandomColourGen(), RandomColourGen(), RandomColourGen()});
+  //}
+  sdfjhkgf(self, basicBeatmapEventData);
 }
+
+/*MAKE_AUTO_HOOK_MATCH(LightSwitchEvent__, &LightSwitchEventEffect::beatmapCallbacksController, void, LightSwitchEventEffect *self)
+{
+  LightSwitchEvent__(self);
+
+  auto a = self->get_lightsId();
+
+  Chroma::LightAPI::setLightColorSafe(self->event, false, Chroma::LightAPI::LSEData{RandomColourGen(), RandomColourGen(), RandomColourGen(), RandomColourGen()});
+}*/
