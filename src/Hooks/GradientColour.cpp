@@ -23,6 +23,7 @@ using namespace Sombrero;
 float bPos;
 float lPos;
 float rPos;
+float liPos = 100;
 
 const int GRADIENT_STEPS = 256;
 
@@ -31,15 +32,21 @@ std::vector<FastColor> gradientColours;
 void PrecomputeGradientColours()
 {
   gradientColours.resize(GRADIENT_STEPS + 1);
-  for (int i = 0; i <= GRADIENT_STEPS; ++i) {
+  for (int i = 0; i <= GRADIENT_STEPS; ++i)
+  {
     float t = (float)i / GRADIENT_STEPS;
 
     FastColor colour;
-    if (t < 0.33f) {
+    if (t < 0.33f)
+    {
       colour = FastColor::Lerp(FastColor(1.0f, 0.0f, 0.0f, 1.0f), FastColor(1.0f, 1.0f, 0.0f, 1.0f), t * 3.0f);
-    } else if (t < 0.66f) {
+    }
+    else if (t < 0.66f)
+    {
       colour = FastColor::Lerp(FastColor(0.0f, 1.0f, 0.0f, 1.0f), FastColor(0.0f, 0.0f, 1.0f, 1.0f), (t - 0.33f) * 3.0f);
-    } else {
+    }
+    else
+    {
       colour = FastColor::Lerp(FastColor(0.0f, 0.0f, 1.0f, 1.0f), FastColor(1.0f, 0.0f, 0.0f, 1.0f), (t - 0.66f) * 3.0f);
     }
 
@@ -51,7 +58,6 @@ FastColor GradientGen(int index)
 {
   return gradientColours[index];
 }
-
 
 MAKE_AUTO_HOOK_MATCH(GameplayCoreInstaller_InstallBindings, &GameplayCoreInstaller::InstallBindings, void, GameplayCoreInstaller *self)
 {
@@ -68,7 +74,10 @@ MAKE_AUTO_HOOK_MATCH(AudioTimeSyncController_Update, &AudioTimeSyncController::U
   AudioTimeSyncController_Update(self);
   // int songTime = self->get_songTime();
 
-  if (getModConfig().ModToggle.GetValue() && getModConfig().TechniBombs.GetValue() == "Gradient")
+  if (!getModConfig().ModToggle.GetValue())
+    return;
+
+  if (getModConfig().TechniBombs.GetValue() == "Gradient")
   {
     // Bomb Colour
     FastColor Bomb = GradientGen(bPos);
@@ -78,7 +87,7 @@ MAKE_AUTO_HOOK_MATCH(AudioTimeSyncController_Update, &AudioTimeSyncController::U
       bPos = 0;
   }
 
-  if (getModConfig().ModToggle.GetValue() && getModConfig().TechniNotes.GetValue() == "Gradient")
+  if (getModConfig().TechniNotes.GetValue() == "Gradient")
   {
     // Left & Right Colour
     FastColor LeftColour = GradientGen(lPos);
@@ -93,5 +102,16 @@ MAKE_AUTO_HOOK_MATCH(AudioTimeSyncController_Update, &AudioTimeSyncController::U
       lPos = 0;
     if (rPos > 255)
       rPos = 0;
+  }
+
+  if (getModConfig().TechniLights.GetValue() == "Gradient")
+  {
+    FastColor LightColour = GradientGen(liPos);
+
+    Chroma::LightAPI::setAllLightingColorsSafe(true, Chroma::LightAPI::LSEData{LightColour, LightColour, LightColour, LightColour});
+    liPos++;
+
+    if (liPos > 255)
+      liPos = 0;
   }
 }
