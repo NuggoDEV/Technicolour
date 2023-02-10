@@ -23,7 +23,7 @@ float ii;
 
 const int STEPS = 256;
 
-const int NUM_STEPS = 256;
+/*const int NUM_STEPS = 256;
 std::array<FastColor, NUM_STEPS> WarmColours;
 std::array<FastColor, NUM_STEPS> CoolColours;
 std::unordered_map<int, FastColor> WarmColourCache;
@@ -65,9 +65,9 @@ void generateColours()
     CoolColours[i] = getCoolColour(i);
   }
 }
+*/
 
-
-/*std::vector<FastColor> warmColours, coolColours;
+std::vector<FastColor> warmColours, coolColours;
 
 void PrecomputeWarmColours()
 {
@@ -77,6 +77,8 @@ void PrecomputeWarmColours()
     FastColor colour;
 
     colour = FastColor::Lerp(FastColor(1.0f, 1.0f, 0.0f), FastColor(0.89f, 0.04f, 0.36f), (float)i / STEPS);
+
+    warmColours[i] = colour;
   }
 }
 
@@ -88,6 +90,8 @@ void PrecomputeCoolColours()
     FastColor colour;
 
     colour = FastColor::Lerp(FastColor(0.0f, 1.0f, 0.0f), FastColor(1.0f, 0.0f, 1.0f), (float)i / STEPS);
+
+    coolColours[i] = colour;
   }
 }
 
@@ -98,7 +102,7 @@ FastColor WarmGen(int index)
 FastColor CoolGen(int index)
 {
   return coolColours[index];
-}*/
+}
 
 
 
@@ -108,9 +112,9 @@ MAKE_AUTO_HOOK_MATCH(WC_GameplayCoreInstaller_InstallBindings, &GameplayCoreInst
 {
   WC_GameplayCoreInstaller_InstallBindings(self);
 
-  generateColours();
-  //PrecomputeWarmColours();
-  //PrecomputeCoolColours();
+  //generateColours();
+  PrecomputeWarmColours();
+  PrecomputeCoolColours();
 
   i = getModConfig().LeftWarmOffset.GetValue();
   ii = getModConfig().RightCoolOffset.GetValue();
@@ -125,8 +129,8 @@ MAKE_AUTO_HOOK_MATCH(WC_AudioTimeSyncController_Update, &GlobalNamespace::AudioT
     /*FastColor LeftColour = WarmGen(i);
     FastColor RightColour = CoolGen(ii);*/
 
-    FastColor LeftColour = getWarmColour(i);
-    FastColor RightColour = getCoolColour(ii);
+    FastColor LeftColour = WarmGen(i);
+    FastColor RightColour = CoolGen(ii);
 
     Chroma::NoteAPI::setGlobalNoteColorSafe(LeftColour, RightColour);
     Chroma::SaberAPI::setGlobalSaberColorSafe(SaberType::SaberA, LeftColour);
