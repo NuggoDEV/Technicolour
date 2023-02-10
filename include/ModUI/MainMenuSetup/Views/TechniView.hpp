@@ -27,14 +27,14 @@ DECLARE_CLASS_CODEGEN(Technicolour::UI::MainMenuSetup, TechniView, HMUI::ViewCon
     BSML_OPTIONS_LIST_STRING(TechniNotesChoice, "Off", "Warm/Cold", "True Random", "Gradient");
     BSML_OPTIONS_LIST_STRING(TechniBombsChoice, "Off", "True Random", "Gradient");
     BSML_OPTIONS_LIST_STRING(TechniWallsChoice, "Off", "True Random"/*, "Gradient"*/);
-    BSML_OPTIONS_LIST_STRING(TechniLightsChoice, "Soon:tm:", "L");
-    //BSML_OPTIONS_LIST_STRING(TechniLightsChoice, "Off", "Warm/Cold", "True Random", "Gradient");
+    BSML_OPTIONS_LIST_STRING(TechniLightsChoice, "Off",/* "True Random",*/ "Gradient");
 
     DECLARE_BSML_PROPERTY(bool, ModToggle);
 
     DECLARE_BSML_PROPERTY(StringW, TechniNotes);
     DECLARE_BSML_PROPERTY(StringW, TechniBombs);
     DECLARE_BSML_PROPERTY(StringW, TechniWalls);
+    DECLARE_BSML_PROPERTY(StringW, TechniLights);
 
     DECLARE_BSML_PROPERTY(float, LeftGradientOffset);
     DECLARE_BSML_PROPERTY(float, RightGradientOffset);

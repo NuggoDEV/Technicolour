@@ -78,6 +78,9 @@ namespace Technicolour::UI::MainMenuSetup
     StringW TechniView::get_TechniWalls() { return getModConfig().TechniWalls.GetValue(); }
     void TechniView::set_TechniWalls(StringW value) { value->ToString(); getModConfig().TechniWalls.SetValue(value); }
 
+    StringW TechniView::get_TechniLights() { return getModConfig().TechniLights.GetValue(); }
+    void TechniView::set_TechniLights(StringW value) { value->ToString(); getModConfig().TechniLights.SetValue(value); }
+
     
     float TechniView::get_LeftGradientOffset() { return getModConfig().LeftGradientOffset.GetValue(); }
     void TechniView::set_LeftGradientOffset(float value) { getModConfig().LeftGradientOffset.SetValue(value); }
