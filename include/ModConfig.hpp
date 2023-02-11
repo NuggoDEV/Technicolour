@@ -13,6 +13,7 @@ DECLARE_CONFIG(ModConfig,
     CONFIG_VALUE(RightGradientOffset, float, "Offset for the right notes gradient", 128.0f);
     CONFIG_VALUE(BombGradientOffset, float, "Offset for the bomb gradient", 45.0f);
     CONFIG_VALUE(WallGradientOffset, float, "Offset for the wall gradient", 90.0f);
+    CONFIG_VALUE(LightGradientOffset, float, "Offset for the light gradient", 170.0f);
 
     CONFIG_VALUE(LeftWarmOffset, float, "Offset for the left notes warm colour", 128.0f);
     CONFIG_VALUE(RightCoolOffset, float, "Offset for the right notes cool colour", 128.0f);

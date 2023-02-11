@@ -27,11 +27,13 @@ namespace Technicolour::UI::MainMenuSetup
         getModConfig().TechniLights.SetValue(getModConfig().TechniLights.GetDefaultValue());
     }
 
-    void TechniView::MiscDefault()
+    void TechniView::OffsetsDefault()
     {
         getModConfig().LeftGradientOffset.SetValue(getModConfig().LeftGradientOffset.GetDefaultValue());
         getModConfig().RightGradientOffset.SetValue(getModConfig().RightGradientOffset.GetDefaultValue());
         getModConfig().BombGradientOffset.SetValue(getModConfig().BombGradientOffset.GetDefaultValue());
+        getModConfig().WallGradientOffset.SetValue(getModConfig().WallGradientOffset.GetDefaultValue());
+        getModConfig().LightGradientOffset.SetValue(getModConfig().LightGradientOffset.GetDefaultValue());
 
 
         getModConfig().LeftWarmOffset.SetValue(getModConfig().LeftWarmOffset.GetDefaultValue());
@@ -41,7 +43,7 @@ namespace Technicolour::UI::MainMenuSetup
     void TechniView::AllDefault()
     {
         StylesDefault();
-        MiscDefault();
+        OffsetsDefault();
     }
 
     void TechniView::ResetLeftGradient() {
@@ -55,6 +57,15 @@ namespace Technicolour::UI::MainMenuSetup
     void TechniView::ResetBombGradient() {
         getModConfig().BombGradientOffset.SetValue(getModConfig().BombGradientOffset.GetDefaultValue());
     }
+
+    void TechniView::ResetWallGradient() {
+        getModConfig().WallGradientOffset.SetValue(getModConfig().WallGradientOffset.GetDefaultValue());
+    }
+
+    void TechniView::ResetLightGradient() {
+        getModConfig().LightGradientOffset.SetValue(getModConfig().LightGradientOffset.GetDefaultValue());
+    }
+
 
     void TechniView::ResetLeftWarm() {
         getModConfig().LeftWarmOffset.SetValue(getModConfig().LeftWarmOffset.GetDefaultValue());
@@ -91,8 +102,11 @@ namespace Technicolour::UI::MainMenuSetup
     float TechniView::get_BombGradientOffset() { return getModConfig().BombGradientOffset.GetValue(); }
     void TechniView::set_BombGradientOffset(float value) { getModConfig().BombGradientOffset.SetValue(value); }
 
-    //float TechniView::get_WallGradientOffset() { return getModConfig().WallGradientOffset.GetValue(); }
-    //void TechniView::set_WallGradientOffset(float value) { getModConfig().WallGradientOffset.SetValue(value); }
+    float TechniView::get_WallGradientOffset() { return getModConfig().WallGradientOffset.GetValue(); }
+    void TechniView::set_WallGradientOffset(float value) { getModConfig().WallGradientOffset.SetValue(value); }
+
+    float TechniView::get_LightGradientOffset() { return getModConfig().LightGradientOffset.GetValue(); }
+    void TechniView::set_LightGradientOffset(float value) { getModConfig().LightGradientOffset.SetValue(value); }
 
 
     float TechniView::get_LeftWarmOffset() { return getModConfig().LeftWarmOffset.GetValue(); }

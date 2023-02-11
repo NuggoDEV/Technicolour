@@ -11,14 +11,12 @@ using namespace QuestUI;
 
 void Technicolour::UI::MainMenuSetup::TechniFlow::DidActivate(bool firstActivation, bool addedToHierarchy, bool screenSystemEnabling)
 {
-    if (firstActivation)
-    {
-        TechniView = BeatSaberUI::CreateViewController<Technicolour::UI::MainMenuSetup::TechniView *>();
+    if (!firstActivation) return;
+    TechniView = BeatSaberUI::CreateViewController<Technicolour::UI::MainMenuSetup::TechniView *>();
 
-        showBackButton = true;
-        ProvideInitialViewControllers(TechniView, nullptr, nullptr, nullptr, nullptr);
-        SetTitle("DEV_Technicolour Settings", ViewController::AnimationType::In);
-    }
+    showBackButton = true;
+    ProvideInitialViewControllers(TechniView, nullptr, nullptr, nullptr, nullptr);
+    SetTitle("DEV_Technicolour Settings", ViewController::AnimationType::In);
 }
 
 void Technicolour::UI::MainMenuSetup::TechniFlow::BackButtonWasPressed(ViewController *topViewController)

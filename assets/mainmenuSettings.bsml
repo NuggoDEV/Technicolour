@@ -18,27 +18,25 @@
                 </horizontal>
             </vertical>
         </tab>
-        <tab tab-name="Misc" tags="tabs">
+        <tab tab-name="Offsets" tags="tabs">
             <vertical>
-
-                <!-- Add reset to default for all of these -->
                 <stack>
                     <horizontal>
-                        <slider-setting text="Left Note Gradient Offset" value="LeftGradientOffset" show-buttons="true" digits="0" min="1" max="254" apply-on-change="true" hover-hint="Lets you mess with the colour offset!"/>
+                        <slider-setting text="Left Note Gradient Offset" value="LeftGradientOffset" show-buttons="true" digits="0" min="1" max="255" apply-on-change="true" hover-hint="Allows you to change the starting offset for the left note gradient."/>
                         <button text="Default" on-click="ResetLeftGradient" pref-width="15"/>
                     </horizontal>
                 </stack>
                 
                 <stack>
                     <horizontal>
-                        <slider-setting text="Right Note Gradient Offset" value="RightGradientOffset" show-buttons="true" digits="0" min="1" max="254" apply-on-change="true" hover-hint="Lets you mess with the colour offset!"/>
+                        <slider-setting text="Right Note Gradient Offset" value="RightGradientOffset" show-buttons="true" digits="0" min="1" max="255" apply-on-change="true" hover-hint="LAllows you to change the starting offset for the right note gradient."/>
                         <button text="Default" on-click="ResetRightGradient" pref-width="15"/>
                     </horizontal>
                 </stack>
 
                 <stack>
                     <horizontal>
-                        <slider-setting text="Bomb Gradient Offset" value="BombGradientOffset" show-buttons="true" digits="0" min="1" max="254" apply-on-change="true" hover-hint="Lets you mess with the colour offset!"/>
+                        <slider-setting text="Bomb Gradient Offset" value="BombGradientOffset" show-buttons="true" digits="0" min="1" max="255" apply-on-change="true" hover-hint="Allows you to change the starting offset for the bomb gradient."/>
                         <button text="Default" on-click="ResetBombGradient" pref-width="15"/>
                     </horizontal>
                 </stack>
@@ -50,17 +48,24 @@
                     </horizontal>
                 </stack>-->
 
+                <stack>
+                    <horizontal>
+                        <slider-setting text="Light Gradient Offset" value="LightGradientOffset" show-buttons="true" digits="0" min="1" max="255" apply-on-change="true" hover-hint="Allows you to change the starting offset for the light gradient."/>
+                        <button text="Default" on-click="ResetLightGradient" pref-width="15"/>
+                    </horizontal>
+                </stack>
+
 
                 <stack>
                     <horizontal>
-                        <slider-setting text="Left Note Warm Offset" value="LeftWarmOffset" show-buttons="true" digits="0" min="1" max="254" apply-on-change="true" hover-hint="Lets you mess with the colour offset!"/>
+                        <slider-setting text="Left Note Warm Offset" value="LeftWarmOffset" show-buttons="true" digits="0" min="1" max="255" apply-on-change="true" hover-hint="Allows you to change the starting offset for the left warm colour."/>
                         <button text="Default" on-click="ResetLeftWarm" pref-width="15"/>
                     </horizontal>
                 </stack>
 
                 <stack>
                     <horizontal>
-                        <slider-setting text="Right Note Cool Offset" value="RightCoolOffset" show-buttons="true" digits="0" min="1" max="254" apply-on-change="true" hover-hint="Lets you mess with the colour offset!"/>
+                        <slider-setting text="Right Note Cool Offset" value="RightCoolOffset" show-buttons="true" digits="0" min="1" max="255" apply-on-change="true" hover-hint="Allows you to change the starting offset for the right cool colour."/>
                         <button text="Default" on-click="ResetRightCool" pref-width="15"/>
                     </horizontal>
                 </stack>

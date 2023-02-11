@@ -18,12 +18,9 @@ using namespace Sombrero;
 #include "chroma/shared/LightAPI.hpp"
 
 #include <array>
-#include <unordered_map>
 
-float bPos;
-float lPos;
-float rPos;
-float liPos = 100;
+float bPos, lPos, rPos, wPos, liPos;
+bool firstActivation = true;
 
 const int GRADIENT_STEPS = 256;
 
@@ -62,11 +59,16 @@ FastColor GradientGen(int index)
 MAKE_AUTO_HOOK_MATCH(GameplayCoreInstaller_InstallBindings, &GameplayCoreInstaller::InstallBindings, void, GameplayCoreInstaller *self)
 {
   GameplayCoreInstaller_InstallBindings(self);
+
+  if (!firstActivation) return;
+  
   PrecomputeGradientColours();
 
   bPos = getModConfig().BombGradientOffset.GetValue();
   lPos = getModConfig().LeftGradientOffset.GetValue();
   rPos = getModConfig().RightGradientOffset.GetValue();
+  wPos = getModConfig().WallGradientOffset.GetValue();
+  liPos = getModConfig().LightGradientOffset.GetValue();
 }
 
 MAKE_AUTO_HOOK_MATCH(AudioTimeSyncController_Update, &AudioTimeSyncController::Update, void, AudioTimeSyncController *self)
@@ -104,13 +106,23 @@ MAKE_AUTO_HOOK_MATCH(AudioTimeSyncController_Update, &AudioTimeSyncController::U
       rPos = 0;
   }
 
+  if (getModConfig().TechniLights.GetValue() == "Gradient") 
+  {
+    FastColor WallColour = GradientGen(wPos);
+
+    Chroma::ObstacleAPI::setAllObstacleColorSafe(WallColour);
+    wPos++;
+    if (wPos > 255)
+      wPos = 0;
+  }
+
+
   if (getModConfig().TechniLights.GetValue() == "Gradient")
   {
     FastColor LightColour = GradientGen(liPos);
 
     Chroma::LightAPI::setAllLightingColorsSafe(true, Chroma::LightAPI::LSEData{LightColour, LightColour, LightColour, LightColour});
     liPos++;
-
     if (liPos > 255)
       liPos = 0;
   }

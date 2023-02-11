@@ -10,6 +10,10 @@
 #include "GlobalNamespace/ObstacleData.hpp"
 #include "GlobalNamespace/ColorType.hpp"
 
+#include "GlobalNamespace/BasicBeatmapEventType.hpp"
+#include "GlobalNamespace/EventsTestGameplayManager.hpp"
+#include "GlobalNamespace/ColorBoostBeatmapEventData.hpp"
+#include "GlobalNamespace/BeatmapCallbacksController.hpp"
 #include "GlobalNamespace/BasicBeatmapEventData.hpp"
 #include "GlobalNamespace/LightSwitchEventEffect.hpp"
 #include "GlobalNamespace/BasicBeatmapEventData.hpp"
@@ -82,7 +86,7 @@ MAKE_AUTO_HOOK_MATCH(sdfjhkgf, &LightSwitchEventEffect::HandleColorChangeBeatmap
   //if (getModConfig().ModToggle.GetValue() && getModConfig().TechniLights.GetValue() == "True Random")
   //{
     //Chroma::LightAPI::setAllLightingColorsSafe(true, Chroma::LightAPI::LSEData{RandomColourGen(), RandomColourGen(), RandomColourGen(), RandomColourGen()});
-  Chroma::LightAPI::setLightColorSafe(basicBeatmapEventData->basicBeatmapEventType, true, Chroma::LightAPI::LSEData{colour, colour, colour, colour});
+  Chroma::LightAPI::setLightColorSafe(self->get_lightsId() /*eventData->nextSameTypeEventData*/, true, Chroma::LightAPI::LSEData{colour, colour, colour, colour});
   //}
   sdfjhkgf(self, basicBeatmapEventData);
 }
