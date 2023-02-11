@@ -29,7 +29,7 @@ std::vector<FastColor> gradientColours;
 void PrecomputeGradientColours()
 {
   gradientColours.resize(GRADIENT_STEPS + 1);
-  for (int i = 0; i <= GRADIENT_STEPS; ++i)
+  for (int i = 0; i <= GRADIENT_STEPS; i++)
   {
     float t = (float)i / GRADIENT_STEPS;
 
@@ -61,7 +61,7 @@ MAKE_AUTO_HOOK_MATCH(GameplayCoreInstaller_InstallBindings, &GameplayCoreInstall
   GameplayCoreInstaller_InstallBindings(self);
 
   if (!firstActivation) return;
-  
+
   PrecomputeGradientColours();
 
   bPos = getModConfig().BombGradientOffset.GetValue();
