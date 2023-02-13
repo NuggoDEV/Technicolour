@@ -17,6 +17,8 @@
 Configuration& getConfig();
 Logger& getLogger();
 
+ModInfo& modInf();
+
 #define LOG(...) INFO(__VA_ARGS__);
 #define INFO(...) Paper::Logger::fmtLog<Paper::LogLevel::INF>(__VA_ARGS__);
 #define ERROR(...) Paper::Logger::fmtLog<Paper::LogLevel::ERR>(__VA_ARGS__);

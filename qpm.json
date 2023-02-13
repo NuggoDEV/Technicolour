@@ -69,6 +69,11 @@
       "id": "fmt",
       "versionRange": "^9.0.0",
       "additionalData": {}
+    },
+    {
+      "id": "pinkcore",
+      "versionRange": "^1.8.8",
+      "additionalData": {}
     }
   ]
 }

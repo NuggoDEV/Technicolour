@@ -3,18 +3,18 @@
 DECLARE_CONFIG(ModConfig,
     CONFIG_VALUE(ModToggle, bool, "Mod Toggle Switch", false);
 
-    CONFIG_VALUE(TechniNotes, std::string, "Makes Notes Colourful :D", "Off");
-    CONFIG_VALUE(TechniSabers, std::string, "Makes Sabers Colourful :D", "Off");
-    CONFIG_VALUE(TechniBombs, std::string, "Makes Bombs Colourful :D", "Off");
-    CONFIG_VALUE(TechniWalls, std::string, "Makes Walls Colourful :D", "Off");
-    CONFIG_VALUE(TechniLights, std::string, "Makes Lights Colourful :D", "Off");
+    CONFIG_VALUE(NoteStyle, std::string, "Makes Notes Colourful :D", "Off");
+    CONFIG_VALUE(SaberStyle, std::string, "Makes Sabers Colourful :D", "Same as Notes");
+    CONFIG_VALUE(BombStyle, std::string, "Makes Bombs Colourful :D", "Off");
+    CONFIG_VALUE(ObstacleStyle, std::string, "Makes Obstacles Colourful :D", "Off");
+    CONFIG_VALUE(LightStyle, std::string, "Makes Lights Colourful :D", "Off");
 
-    CONFIG_VALUE(LeftGradientOffset, float, "Offset for the left notes gradient", 0.0f);
-    CONFIG_VALUE(RightGradientOffset, float, "Offset for the right notes gradient", 128.0f);
+    CONFIG_VALUE(LeftSaberGradientOffset, float, "Offset for the left sabers gradient", 1.0f);
+    CONFIG_VALUE(RightSaberGradientOffset, float, "Offset for the right sabers gradient", 128.0f);
+    CONFIG_VALUE(LeftNoteGradientOffset, float, "Offset for the left notes gradient", 1.0f);
+    CONFIG_VALUE(RightNoteGradientOffset, float, "Offset for the right notes gradient", 128.0f);
     CONFIG_VALUE(BombGradientOffset, float, "Offset for the bomb gradient", 45.0f);
-    CONFIG_VALUE(WallGradientOffset, float, "Offset for the wall gradient", 90.0f);
+    CONFIG_VALUE(ObstacleGradientOffset, float, "Offset for the Obstacle gradient", 90.0f);
     CONFIG_VALUE(LightGradientOffset, float, "Offset for the light gradient", 170.0f);
 
-    CONFIG_VALUE(LeftWarmOffset, float, "Offset for the left notes warm colour", 128.0f);
-    CONFIG_VALUE(RightCoolOffset, float, "Offset for the right notes cool colour", 128.0f);
 )

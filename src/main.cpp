@@ -11,10 +11,12 @@
 #include "ModUI/GameplaySetup/GameplayUI.hpp"
 using namespace Technicolour::UI::MainMenuSetup;
 
-static ModInfo modInfo; // Stores the ID and version of our mod, and is sent to the modloader upon startup
+static ModInfo modInfo;
 
-// Loads the config from disk using our modInfo, then returns it for use
-// other config tools such as config-utils don't use this config, so it can be removed if those are in use
+ModInfo& modInf() {
+    return modInfo;
+}
+
 Configuration& getConfig() {
     static Configuration config(modInfo);
     return config;

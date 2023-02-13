@@ -5,45 +5,61 @@
 #include "HMUI/FlowCoordinator.hpp"
 #include "HMUI/ViewController.hpp"
 
-#include "bsml/shared/BSML/Components/Settings/DropdownListSetting.hpp"
+#include "bsml/shared/BSML/Components/Settings/SliderSetting.hpp"
 #include "custom-types/shared/macros.hpp"
 #include "bsml/shared/macros.hpp"
 
+#include "UnityEngine/GameObject.hpp"
 
 DECLARE_CLASS_CODEGEN(Technicolour::UI::MainMenuSetup, TechniView, HMUI::ViewController,
     DECLARE_OVERRIDE_METHOD(void, DidActivate, il2cpp_utils::FindMethodUnsafe("HMUI", "ViewController", "DidActivate", 3), bool firstActivation, bool addedToHierarchy, bool screenSystemEnabling);
 
-    DECLARE_INSTANCE_METHOD(void, StylesDefault);
-    DECLARE_INSTANCE_METHOD(void, OffsetsDefault);
-    DECLARE_INSTANCE_METHOD(void, AllDefault);
-
-    DECLARE_INSTANCE_METHOD(void, ResetLeftGradient);
-    DECLARE_INSTANCE_METHOD(void, ResetRightGradient);
-    DECLARE_INSTANCE_METHOD(void, ResetBombGradient);
-    DECLARE_INSTANCE_METHOD(void, ResetWallGradient);
-    DECLARE_INSTANCE_METHOD(void, ResetLightGradient);
-
-    DECLARE_INSTANCE_METHOD(void, ResetLeftWarm);
-    DECLARE_INSTANCE_METHOD(void, ResetRightCool);
-
-    BSML_OPTIONS_LIST_STRING(TechniNotesChoice, "Off", "Warm/Cold", "True Random", "Gradient");
-    BSML_OPTIONS_LIST_STRING(TechniBombsChoice, "Off", "True Random", "Gradient");
-    BSML_OPTIONS_LIST_STRING(TechniWallsChoice, "Off", "True Random", "Gradient");
-    BSML_OPTIONS_LIST_STRING(TechniLightsChoice, "Off",/* "True Random",*/ "Gradient");
-
     DECLARE_BSML_PROPERTY(bool, ModToggle);
 
-    DECLARE_BSML_PROPERTY(StringW, TechniNotes);
-    DECLARE_BSML_PROPERTY(StringW, TechniBombs);
-    DECLARE_BSML_PROPERTY(StringW, TechniWalls);
-    DECLARE_BSML_PROPERTY(StringW, TechniLights);
+    // Page Default Functions
+    DECLARE_INSTANCE_METHOD(void, GradientPageDefault);
+    DECLARE_INSTANCE_METHOD(void, WarmCoolPageDefault);
+    DECLARE_INSTANCE_METHOD(void, StylePageDefault);
+    DECLARE_INSTANCE_METHOD(void, AllPageDefault);
 
-    DECLARE_BSML_PROPERTY(float, LeftGradientOffset);
-    DECLARE_BSML_PROPERTY(float, RightGradientOffset);
+    // Gradient Offset Default Functions
+    DECLARE_INSTANCE_METHOD(void, LeftSaberGradientOffsetDefault);
+    DECLARE_INSTANCE_METHOD(void, RightSaberGradientOffsetDefault);
+    DECLARE_INSTANCE_METHOD(void, LeftNoteGradientOffsetDefault);
+    DECLARE_INSTANCE_METHOD(void, RightNoteGradientOffsetDefault);
+    DECLARE_INSTANCE_METHOD(void, ObstacleGradientOffsetDefault);
+    DECLARE_INSTANCE_METHOD(void, BombGradientOffsetDefault);
+    DECLARE_INSTANCE_METHOD(void, LightGradientOffsetDefault);
+
+    // Gradient Offset Objects
+    DECLARE_INSTANCE_FIELD(BSML::SliderSetting*, LeftSaberGradientObject);
+    DECLARE_INSTANCE_FIELD(BSML::SliderSetting*, RightSaberGradientObject);
+    DECLARE_INSTANCE_FIELD(BSML::SliderSetting*, LeftNoteGradientObject);
+    DECLARE_INSTANCE_FIELD(BSML::SliderSetting*, RightNoteGradientObject);
+    DECLARE_INSTANCE_FIELD(BSML::SliderSetting*, ObstacleGradientObject);
+    DECLARE_INSTANCE_FIELD(BSML::SliderSetting*, BombGradientObject);
+    DECLARE_INSTANCE_FIELD(BSML::SliderSetting*, LightGradientObject);
+
+    // Style Choices
+    BSML_OPTIONS_LIST_STRING(SaberStyleList, "Same as Notes", "Warm/Cool", "Gradient");
+    BSML_OPTIONS_LIST_STRING(NoteStyleList, "Off", "True Random", "Warm/Cool", "Gradient");
+    BSML_OPTIONS_LIST_STRING(ObstacleStyleList, "Off", "True Random", "Gradient");
+    BSML_OPTIONS_LIST_STRING(BombStyleList, "Off", "True Random", "Gradient");
+    BSML_OPTIONS_LIST_STRING(LightStyleList, "Off", "Gradient");
+
+    // Style Values
+    DECLARE_BSML_PROPERTY(StringW, SaberStyle);
+    DECLARE_BSML_PROPERTY(StringW, NoteStyle);
+    DECLARE_BSML_PROPERTY(StringW, ObstacleStyle);
+    DECLARE_BSML_PROPERTY(StringW, BombStyle);
+    DECLARE_BSML_PROPERTY(StringW, LightStyle);
+
+    // Gradient Offset Values
+    DECLARE_BSML_PROPERTY(float, LeftSaberGradientOffset);
+    DECLARE_BSML_PROPERTY(float, RightSaberGradientOffset);
+    DECLARE_BSML_PROPERTY(float, LeftNoteGradientOffset);
+    DECLARE_BSML_PROPERTY(float, RightNoteGradientOffset);
+    DECLARE_BSML_PROPERTY(float, ObstacleGradientOffset);
     DECLARE_BSML_PROPERTY(float, BombGradientOffset);
-    DECLARE_BSML_PROPERTY(float, WallGradientOffset);
     DECLARE_BSML_PROPERTY(float, LightGradientOffset);
-
-    DECLARE_BSML_PROPERTY(float, LeftWarmOffset);
-    DECLARE_BSML_PROPERTY(float, RightCoolOffset);
 )

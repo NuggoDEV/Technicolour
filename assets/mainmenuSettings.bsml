@@ -1,80 +1,85 @@
-<bg id='root' xmlns:xsi='http://www.w3.org/1501/XMLSchema-instance' xsi:noNamespaceSchemaLocation='https://raw.githubusercontent.com/RedBrumbler/Quest-BSML-Docs/gh-pages/schema.xsd'>
-    <tab-selector tab-tag="tabs"/>
-
-    <horizontal pref-height='60' pad='2'>
-
+<bg id='root' xmlns:xsi='http://www.w3.org/1501/XMLSchema-instance'
+    xsi:noNamespaceSchemaLocation='https://raw.githubusercontent.com/RedBrumbler/Quest-BSML-Docs/gh-pages/schema.xsd'>
+    <tab-selector tab-tag="tabs" />
+    <horizontal pref-width="58" pref-height="50">
         <tab tab-name="Styles" tags="tabs">
-            <vertical>
+            <vertical >
                 <toggle-setting text="Enable Technicolour" value="ModToggle" apply-on-change="true"/>
-                
-                <dropdown-list-setting text="Notes Style" value="TechniNotes" apply-on-change="true" options="TechniNotesChoice" />
-                <dropdown-list-setting text="Bombs Style" value="TechniBombs" apply-on-change="true" options="TechniBombsChoice" />
-                <dropdown-list-setting text="Walls Style" value="TechniWalls" apply-on-change="true" options="TechniWallsChoice" />
-                <dropdown-list-setting text="Lights Style" value="TechniLights" apply-on-change="true" options="TechniLightsChoice" />
+
+                <dropdown-list-setting text="Saber Style" value="SaberStyle" choices="SaberStyleList" apply-on-change="true"/>
+                <dropdown-list-setting text="Note Style" value="NoteStyle" choices="NoteStyleList" apply-on-change="true"/>
+                <dropdown-list-setting text="Obstacle Style" value="ObstacleStyle" choices="ObstacleStyleList" apply-on-change="true"/>
+                <dropdown-list-setting text="Bomb Style" value="BombStyle" choices="BombStyleList" apply-on-change="true"/>
+                <dropdown-list-setting text="Light Style" value="LightStyle" choices="LightStyleList" apply-on-change="true"/>
 
                 <horizontal>
-                    <button text="Reset to Page Default" on-click="StylesDefault" min-width="45"/>
-                    <button text="Reset all Default" on-click="AllDefault" min-width="40"/>
+                    <button text="Reset Styles Page to Default" on-click="StylePageDefault" pref-width="45" hover-hint="NOTE: This does not update what you see visually. The config is updated though"/>
+                    <button text="Reset All to Default" on-click="AllPageDefault" pref-width="45"/>
                 </horizontal>
             </vertical>
         </tab>
+
         <tab tab-name="Offsets" tags="tabs">
-            <vertical>
-                <stack>
-                    <horizontal>
-                        <slider-setting text="Left Note Gradient Offset" value="LeftGradientOffset" show-buttons="true" digits="0" min="1" max="255" apply-on-change="true" hover-hint="Allows you to change the starting offset for the left note gradient."/>
-                        <button text="Default" on-click="ResetLeftGradient" pref-width="15"/>
-                    </horizontal>
-                </stack>
-                
-                <stack>
-                    <horizontal>
-                        <slider-setting text="Right Note Gradient Offset" value="RightGradientOffset" show-buttons="true" digits="0" min="1" max="255" apply-on-change="true" hover-hint="LAllows you to change the starting offset for the right note gradient."/>
-                        <button text="Default" on-click="ResetRightGradient" pref-width="15"/>
-                    </horizontal>
-                </stack>
+            <tab-selector tab-tag="tabs2"/>
 
-                <stack>
-                    <horizontal>
-                        <slider-setting text="Bomb Gradient Offset" value="BombGradientOffset" show-buttons="true" digits="0" min="1" max="255" apply-on-change="true" hover-hint="Allows you to change the starting offset for the bomb gradient."/>
-                        <button text="Default" on-click="ResetBombGradient" pref-width="15"/>
-                    </horizontal>
-                </stack>
-                
-                <!--<stack>
-                    <horizontal>
-                        <slider-setting text="Wall Gradient Offset" value="WallGradientOffset" show-buttons="true" digits="0" min="1" max="254" apply-on-change="true" hover-hint="Lets you mess with the colour offset!"/>
-                        <button text="Default" on-click="ResetWallGradient" pref-width="15"/>
-                    </horizontal>
-                </stack>-->
+            <tab tab-name="Gradients" tags="tabs2" anchor-pos-y="-15">
+                <vertical anchor-pos-y="10">
+                    <stack>
+                        <horizontal>
+                            <slider-setting apply-on-change="true" text="Left Saber Offset" value="LeftSaberGradientOffset" id="LeftSaberGradientObject" show-buttons="true" digits="0" min="1" max="255"/>
+                            <button text="Default" on-click="LeftSaberGradientOffsetDefault" pref-width="15"/>
+                        </horizontal>
+                    </stack>
+                    
+                    <stack>
+                        <horizontal>
+                            <slider-setting apply-on-change="true" text="Right Saber Offset" value="RightSaberGradientOffset" id="RightSaberGradientObject" show-buttons="true" digits="0" min="1" max="255"/>
+                            <button text="Default" on-click="RightSaberGradientOffsetDefault" pref-width="15"/>
+                        </horizontal>
+                    </stack>
 
-                <stack>
-                    <horizontal>
-                        <slider-setting text="Light Gradient Offset" value="LightGradientOffset" show-buttons="true" digits="0" min="1" max="255" apply-on-change="true" hover-hint="Allows you to change the starting offset for the light gradient."/>
-                        <button text="Default" on-click="ResetLightGradient" pref-width="15"/>
-                    </horizontal>
-                </stack>
+                    <stack>
+                        <horizontal>
+                            <slider-setting apply-on-change="true" text="Left Note Offset" value="LeftNoteGradientOffset" id="LeftNoteGradientObject" show-buttons="true" digits="0" min="1" max="255"/>
+                            <button text="Default" on-click="LeftNoteGradientOffsetDefault" pref-width="15"/>
+                        </horizontal>
+                    </stack>
 
+                    <stack>
+                        <horizontal>
+                            <slider-setting apply-on-change="true" text="Right Note Offset" value="RightNoteGradientOffset" id="RightNoteGradientObject" show-buttons="true" digits="0" min="1" max="255"/>
+                            <button text="Default" on-click="RightNoteGradientOffsetDefault" pref-width="15"/>
+                        </horizontal>
+                    </stack>
 
-                <stack>
-                    <horizontal>
-                        <slider-setting text="Left Note Warm Offset" value="LeftWarmOffset" show-buttons="true" digits="0" min="1" max="255" apply-on-change="true" hover-hint="Allows you to change the starting offset for the left warm colour."/>
-                        <button text="Default" on-click="ResetLeftWarm" pref-width="15"/>
-                    </horizontal>
-                </stack>
+                    <stack>
+                        <horizontal>
+                            <slider-setting apply-on-change="true" text="Obstacle Offset" value="ObstacleGradientOffset" id="ObstacleGradientObject" show-buttons="true" digits="0" min="1" max="255"/>
+                            <button text="Default" on-click="ObstacleGradientOffsetDefault" pref-width="15"/>
+                        </horizontal>
+                    </stack>
 
-                <stack>
+                    <stack>
+                        <horizontal>
+                            <slider-setting apply-on-change="true" text="Bomb Offset" value="BombGradientOffset" id="BombGradientObject" show-buttons="true" digits="0" min="1" max="255"/>
+                            <button text="Default" on-click="BombGradientOffsetDefault" pref-width="15"/>
+                        </horizontal>
+                    </stack>
+
+                    <stack>
+                        <horizontal>
+                            <slider-setting apply-on-change="true" text="Light Offset" value="LightGradientOffset" id="LightGradientObject" show-buttons="true" digits="0" min="1" max="255"/>
+                            <button text="Default" on-click="LightGradientOffsetDefault" pref-width="15"/>
+                        </horizontal>
+                    </stack>
+
                     <horizontal>
-                        <slider-setting text="Right Note Cool Offset" value="RightCoolOffset" show-buttons="true" digits="0" min="1" max="255" apply-on-change="true" hover-hint="Allows you to change the starting offset for the right cool colour."/>
-                        <button text="Default" on-click="ResetRightCool" pref-width="15"/>
+                        <button text="Reset Gradient Offsets to Default" on-click="GradientPageDefault" pref-width="55" hover-hint="NOTE: This does not update what you see visually. The config is updated though"/>
+                        <button text="Reset All to Default" on-click="AllPageDefault" pref-width="45"/>
                     </horizontal>
-                </stack>
-                
-                <horizontal>
-                    <button text="Reset to Page Default" on-click="MiscDefault" min-width="45"/>
-                    <button text="Reset all Default" on-click="AllDefault" min-width="40"/>
-                </horizontal>
-            </vertical>
+
+                </vertical>
+            </tab>
         </tab>
     </horizontal>
 </bg>
