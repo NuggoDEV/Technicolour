@@ -30,11 +30,19 @@ namespace Technicolour::UI::MainMenuSetup
 
     void TechniView::StylePageDefault()
     {
+        // Sets Values to Default
         getModConfig().SaberStyle.SetValue(getModConfig().SaberStyle.GetDefaultValue());
         getModConfig().NoteStyle.SetValue(getModConfig().NoteStyle.GetDefaultValue());
         getModConfig().ObstacleStyle.SetValue(getModConfig().ObstacleStyle.GetDefaultValue());
         getModConfig().BombStyle.SetValue(getModConfig().BombStyle.GetDefaultValue());
         getModConfig().LightStyle.SetValue(getModConfig().LightStyle.GetDefaultValue());
+
+        // Updates Visual Text
+        SaberStyleObject->dropdown->SelectCellWithIdx(0);
+        NoteStyleObject->dropdown->SelectCellWithIdx(0);
+        ObstacleStyleObject->dropdown->SelectCellWithIdx(0);
+        BombStyleObject->dropdown->SelectCellWithIdx(0);
+        LightStyleObject->dropdown->SelectCellWithIdx(0);
     }
 
     void TechniView::GradientPageDefault()

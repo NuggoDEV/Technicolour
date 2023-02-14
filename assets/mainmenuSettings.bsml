@@ -6,25 +6,27 @@
             <vertical>
                 <toggle-setting text="Enable Technicolour" value="ModToggle" apply-on-change="true" />
 
-                <dropdown-list-setting text="Saber Style" value="SaberStyle"
+                <dropdown-list-setting text="Saber Style" value="SaberStyle" id="SaberStyleObject"
                     choices="SaberStyleList" apply-on-change="true" />
 
-                <dropdown-list-setting text="Note Style" value="NoteStyle" choices="NoteStyleList"
+                <dropdown-list-setting text="Note Style" value="NoteStyle" id="NoteStyleObject"
+                    choices="NoteStyleList"
                     apply-on-change="true" />
 
                 <dropdown-list-setting text="Obstacle Style" value="ObstacleStyle"
+                    id="ObstacleStyleObject"
                     choices="ObstacleStyleList" apply-on-change="true" />
 
-                <dropdown-list-setting text="Bomb Style" value="BombStyle" choices="BombStyleList"
+                <dropdown-list-setting text="Bomb Style" value="BombStyle" id="BombStyleObject"
+                    choices="BombStyleList"
                     apply-on-change="true" />
 
-                <dropdown-list-setting text="Light Style" value="LightStyle"
+                <dropdown-list-setting text="Light Style" value="LightStyle" id="LightStyleObject"
                     choices="LightStyleList" apply-on-change="true" />
 
                 <horizontal>
                     <button text="Reset Styles Page to Default" on-click="StylePageDefault"
-                        pref-width="45"
-                        hover-hint="NOTE: This does not update what you see visually. The config is updated though" />
+                        pref-width="45" />
 
                     <button text="Reset All to Default" on-click="AllPageDefault" pref-width="45" />
                 </horizontal>

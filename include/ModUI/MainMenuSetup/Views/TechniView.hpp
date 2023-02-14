@@ -6,6 +6,7 @@
 #include "HMUI/ViewController.hpp"
 
 #include "bsml/shared/BSML/Components/Settings/SliderSetting.hpp"
+#include "bsml/shared/BSML/Components/Settings/DropdownListSetting.hpp"
 #include "custom-types/shared/macros.hpp"
 #include "bsml/shared/macros.hpp"
 
@@ -36,6 +37,13 @@ DECLARE_CLASS_CODEGEN(Technicolour::UI::MainMenuSetup, TechniView, HMUI::ViewCon
     DECLARE_INSTANCE_METHOD(void, RightSaberWarmCoolOffsetDefault);
     DECLARE_INSTANCE_METHOD(void, LeftNoteWarmCoolOffsetDefault);
     DECLARE_INSTANCE_METHOD(void, RightNoteWarmCoolOffsetDefault);
+
+    // Styles Default Objects
+    DECLARE_INSTANCE_FIELD(BSML::DropdownListSetting*, SaberStyleObject);
+    DECLARE_INSTANCE_FIELD(BSML::DropdownListSetting*, NoteStyleObject);
+    DECLARE_INSTANCE_FIELD(BSML::DropdownListSetting*, ObstacleStyleObject);
+    DECLARE_INSTANCE_FIELD(BSML::DropdownListSetting*, BombStyleObject);
+    DECLARE_INSTANCE_FIELD(BSML::DropdownListSetting*, LightStyleObject);
 
     // Gradient Offset Objects
     DECLARE_INSTANCE_FIELD(BSML::SliderSetting*, LeftSaberGradientObject);
