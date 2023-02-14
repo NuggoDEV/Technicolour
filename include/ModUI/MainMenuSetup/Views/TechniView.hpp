@@ -31,6 +31,12 @@ DECLARE_CLASS_CODEGEN(Technicolour::UI::MainMenuSetup, TechniView, HMUI::ViewCon
     DECLARE_INSTANCE_METHOD(void, BombGradientOffsetDefault);
     DECLARE_INSTANCE_METHOD(void, LightGradientOffsetDefault);
 
+    // Warm/Cool Offset Default Functions
+    DECLARE_INSTANCE_METHOD(void, LeftSaberWarmCoolOffsetDefault);
+    DECLARE_INSTANCE_METHOD(void, RightSaberWarmCoolOffsetDefault);
+    DECLARE_INSTANCE_METHOD(void, LeftNoteWarmCoolOffsetDefault);
+    DECLARE_INSTANCE_METHOD(void, RightNoteWarmCoolOffsetDefault);
+
     // Gradient Offset Objects
     DECLARE_INSTANCE_FIELD(BSML::SliderSetting*, LeftSaberGradientObject);
     DECLARE_INSTANCE_FIELD(BSML::SliderSetting*, RightSaberGradientObject);
@@ -39,6 +45,12 @@ DECLARE_CLASS_CODEGEN(Technicolour::UI::MainMenuSetup, TechniView, HMUI::ViewCon
     DECLARE_INSTANCE_FIELD(BSML::SliderSetting*, ObstacleGradientObject);
     DECLARE_INSTANCE_FIELD(BSML::SliderSetting*, BombGradientObject);
     DECLARE_INSTANCE_FIELD(BSML::SliderSetting*, LightGradientObject);
+
+    // Warm/Cool Offset Objects
+    DECLARE_INSTANCE_FIELD(BSML::SliderSetting*, LeftSaberWarmCoolObject);
+    DECLARE_INSTANCE_FIELD(BSML::SliderSetting*, RightSaberWarmCoolObject);
+    DECLARE_INSTANCE_FIELD(BSML::SliderSetting*, LeftNoteWarmCoolObject);
+    DECLARE_INSTANCE_FIELD(BSML::SliderSetting*, RightNoteWarmCoolObject);
 
     // Style Choices
     BSML_OPTIONS_LIST_STRING(SaberStyleList, "Same as Notes", "Warm/Cool", "Gradient");
@@ -62,4 +74,10 @@ DECLARE_CLASS_CODEGEN(Technicolour::UI::MainMenuSetup, TechniView, HMUI::ViewCon
     DECLARE_BSML_PROPERTY(float, ObstacleGradientOffset);
     DECLARE_BSML_PROPERTY(float, BombGradientOffset);
     DECLARE_BSML_PROPERTY(float, LightGradientOffset);
+
+    // Warm/Cool Offset Values
+    DECLARE_BSML_PROPERTY(float, LeftSaberWarmCoolOffset);
+    DECLARE_BSML_PROPERTY(float, RightSaberWarmCoolOffset);
+    DECLARE_BSML_PROPERTY(float, LeftNoteWarmCoolOffset);
+    DECLARE_BSML_PROPERTY(float, RightNoteWarmCoolOffset);
 )

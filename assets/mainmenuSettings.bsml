@@ -3,81 +3,181 @@
     <tab-selector tab-tag="tabs" />
     <horizontal pref-width="58" pref-height="50">
         <tab tab-name="Styles" tags="tabs">
-            <vertical >
-                <toggle-setting text="Enable Technicolour" value="ModToggle" apply-on-change="true"/>
+            <vertical>
+                <toggle-setting text="Enable Technicolour" value="ModToggle" apply-on-change="true" />
 
-                <dropdown-list-setting text="Saber Style" value="SaberStyle" choices="SaberStyleList" apply-on-change="true"/>
-                <dropdown-list-setting text="Note Style" value="NoteStyle" choices="NoteStyleList" apply-on-change="true"/>
-                <dropdown-list-setting text="Obstacle Style" value="ObstacleStyle" choices="ObstacleStyleList" apply-on-change="true"/>
-                <dropdown-list-setting text="Bomb Style" value="BombStyle" choices="BombStyleList" apply-on-change="true"/>
-                <dropdown-list-setting text="Light Style" value="LightStyle" choices="LightStyleList" apply-on-change="true"/>
+                <dropdown-list-setting text="Saber Style" value="SaberStyle"
+                    choices="SaberStyleList" apply-on-change="true" />
+
+                <dropdown-list-setting text="Note Style" value="NoteStyle" choices="NoteStyleList"
+                    apply-on-change="true" />
+
+                <dropdown-list-setting text="Obstacle Style" value="ObstacleStyle"
+                    choices="ObstacleStyleList" apply-on-change="true" />
+
+                <dropdown-list-setting text="Bomb Style" value="BombStyle" choices="BombStyleList"
+                    apply-on-change="true" />
+
+                <dropdown-list-setting text="Light Style" value="LightStyle"
+                    choices="LightStyleList" apply-on-change="true" />
 
                 <horizontal>
-                    <button text="Reset Styles Page to Default" on-click="StylePageDefault" pref-width="45" hover-hint="NOTE: This does not update what you see visually. The config is updated though"/>
-                    <button text="Reset All to Default" on-click="AllPageDefault" pref-width="45"/>
+                    <button text="Reset Styles Page to Default" on-click="StylePageDefault"
+                        pref-width="45"
+                        hover-hint="NOTE: This does not update what you see visually. The config is updated though" />
+
+                    <button text="Reset All to Default" on-click="AllPageDefault" pref-width="45" />
                 </horizontal>
             </vertical>
         </tab>
 
         <tab tab-name="Offsets" tags="tabs">
-            <tab-selector tab-tag="tabs2"/>
+            <tab-selector tab-tag="tabs2" size-delta-x="5" anchor-pos-y="7" />
 
-            <tab tab-name="Gradients" tags="tabs2" anchor-pos-y="-15">
-                <vertical anchor-pos-y="10">
+            <tab tab-name="Gradients" tags="tabs2" anchor-pos-y="-3">
+                <vertical size-delta-x="5">
                     <stack>
                         <horizontal>
-                            <slider-setting apply-on-change="true" text="Left Saber Offset" value="LeftSaberGradientOffset" id="LeftSaberGradientObject" show-buttons="true" digits="0" min="1" max="255"/>
-                            <button text="Default" on-click="LeftSaberGradientOffsetDefault" pref-width="15"/>
-                        </horizontal>
-                    </stack>
-                    
-                    <stack>
-                        <horizontal>
-                            <slider-setting apply-on-change="true" text="Right Saber Offset" value="RightSaberGradientOffset" id="RightSaberGradientObject" show-buttons="true" digits="0" min="1" max="255"/>
-                            <button text="Default" on-click="RightSaberGradientOffsetDefault" pref-width="15"/>
+                            <slider-setting apply-on-change="true" text="Left Saber Offset"
+                                value="LeftSaberGradientOffset" id="LeftSaberGradientObject"
+                                show-buttons="true" digits="0" min="1" max="255" />
+
+                            <button text="Default" on-click="LeftSaberGradientOffsetDefault"
+                                pref-width="15" />
                         </horizontal>
                     </stack>
 
                     <stack>
                         <horizontal>
-                            <slider-setting apply-on-change="true" text="Left Note Offset" value="LeftNoteGradientOffset" id="LeftNoteGradientObject" show-buttons="true" digits="0" min="1" max="255"/>
-                            <button text="Default" on-click="LeftNoteGradientOffsetDefault" pref-width="15"/>
+                            <slider-setting apply-on-change="true" text="Right Saber Offset"
+                                value="RightSaberGradientOffset" id="RightSaberGradientObject"
+                                show-buttons="true" digits="0" min="1" max="255" />
+
+                            <button text="Default" on-click="RightSaberGradientOffsetDefault"
+                                pref-width="15" />
                         </horizontal>
                     </stack>
 
                     <stack>
                         <horizontal>
-                            <slider-setting apply-on-change="true" text="Right Note Offset" value="RightNoteGradientOffset" id="RightNoteGradientObject" show-buttons="true" digits="0" min="1" max="255"/>
-                            <button text="Default" on-click="RightNoteGradientOffsetDefault" pref-width="15"/>
+                            <slider-setting apply-on-change="true" text="Left Note Offset"
+                                value="LeftNoteGradientOffset" id="LeftNoteGradientObject"
+                                show-buttons="true" digits="0" min="1" max="255" />
+
+                            <button text="Default" on-click="LeftNoteGradientOffsetDefault"
+                                pref-width="15" />
                         </horizontal>
                     </stack>
 
                     <stack>
                         <horizontal>
-                            <slider-setting apply-on-change="true" text="Obstacle Offset" value="ObstacleGradientOffset" id="ObstacleGradientObject" show-buttons="true" digits="0" min="1" max="255"/>
-                            <button text="Default" on-click="ObstacleGradientOffsetDefault" pref-width="15"/>
+                            <slider-setting apply-on-change="true" text="Right Note Offset"
+                                value="RightNoteGradientOffset" id="RightNoteGradientObject"
+                                show-buttons="true" digits="0" min="1" max="255" />
+
+                            <button text="Default" on-click="RightNoteGradientOffsetDefault"
+                                pref-width="15" />
                         </horizontal>
                     </stack>
 
                     <stack>
                         <horizontal>
-                            <slider-setting apply-on-change="true" text="Bomb Offset" value="BombGradientOffset" id="BombGradientObject" show-buttons="true" digits="0" min="1" max="255"/>
-                            <button text="Default" on-click="BombGradientOffsetDefault" pref-width="15"/>
+                            <slider-setting apply-on-change="true" text="Obstacle Offset"
+                                value="ObstacleGradientOffset" id="ObstacleGradientObject"
+                                show-buttons="true" digits="0" min="1" max="255" />
+
+                            <button text="Default" on-click="ObstacleGradientOffsetDefault"
+                                pref-width="15" />
                         </horizontal>
                     </stack>
 
                     <stack>
                         <horizontal>
-                            <slider-setting apply-on-change="true" text="Light Offset" value="LightGradientOffset" id="LightGradientObject" show-buttons="true" digits="0" min="1" max="255"/>
-                            <button text="Default" on-click="LightGradientOffsetDefault" pref-width="15"/>
+                            <slider-setting apply-on-change="true" text="Bomb Offset"
+                                value="BombGradientOffset" id="BombGradientObject"
+                                show-buttons="true" digits="0" min="1" max="255" />
+
+                            <button text="Default" on-click="BombGradientOffsetDefault"
+                                pref-width="15" />
+                        </horizontal>
+                    </stack>
+
+                    <stack>
+                        <horizontal>
+                            <slider-setting apply-on-change="true" text="Light Offset"
+                                value="LightGradientOffset" id="LightGradientObject"
+                                show-buttons="true" digits="0" min="1" max="255" />
+
+                            <button text="Default" on-click="LightGradientOffsetDefault"
+                                pref-width="15" />
                         </horizontal>
                     </stack>
 
                     <horizontal>
-                        <button text="Reset Gradient Offsets to Default" on-click="GradientPageDefault" pref-width="55" hover-hint="NOTE: This does not update what you see visually. The config is updated though"/>
-                        <button text="Reset All to Default" on-click="AllPageDefault" pref-width="45"/>
-                    </horizontal>
+                        <button text="Reset Gradient Offsets to Default"
+                            on-click="GradientPageDefault" pref-width="55"
+                            hover-hint="NOTE: This does not update what you see visually. The config is updated though" />
 
+                        <button text="Reset All to Default" on-click="AllPageDefault"
+                            pref-width="45" />
+                    </horizontal>
+                </vertical>
+            </tab>
+
+            <tab tab-name="Warm/Cool" tags="tabs2" anchor-pos-y="-3">
+                <vertical size-delta-x="5">
+                    <stack>
+                        <horizontal>
+                            <slider-setting apply-on-change="true" text="Left Saber Offset"
+                                value="LeftSaberWarmCoolOffset" id="LeftSaberWarmCoolObject"
+                                show-buttons="true" digits="0" min="1" max="255" />
+
+                            <button text="Default" on-click="LeftSaberWarmCoolOffsetDefault"
+                                pref-width="15" />
+                        </horizontal>
+                    </stack>
+
+                    <stack>
+                        <horizontal>
+                            <slider-setting apply-on-change="true" text="Right Saber Offset"
+                                value="RightSaberWarmCoolOffset" id="RightSaberWarmCoolObject"
+                                show-buttons="true" digits="0" min="1" max="255" />
+
+                            <button text="Default" on-click="RightSaberWarmCoolOffsetDefault"
+                                pref-width="15" />
+                        </horizontal>
+                    </stack>
+
+
+                    <stack>
+                        <horizontal>
+                            <slider-setting apply-on-change="true" text="Left Note Offset"
+                                value="LeftNoteWarmCoolOffset" id="LeftNoteWarmCoolObject"
+                                show-buttons="true" digits="0" min="1" max="255" />
+
+                            <button text="Default" on-click="LeftNoteWarmCoolOffsetDefault"
+                                pref-width="15" />
+                        </horizontal>
+                    </stack>
+
+                    <stack>
+                        <horizontal>
+                            <slider-setting apply-on-change="true" text="Right Note Offset"
+                                value="RightNoteWarmCoolOffset" id="RightNoteWarmCoolObject"
+                                show-buttons="true" digits="0" min="1" max="255" />
+
+                            <button text="Default" on-click="RightNoteWarmCoolOffsetDefault"
+                                pref-width="15" />
+                        </horizontal>
+                    </stack>
+
+                    <horizontal>
+                        <button text="Reset Warm/Cool Offsets to Default"
+                            on-click="WarmCoolPageDefault" pref-width="55" />
+
+                        <button text="Reset All to Default" on-click="AllPageDefault"
+                            pref-width="45" />
+                    </horizontal>
                 </vertical>
             </tab>
         </tab>
