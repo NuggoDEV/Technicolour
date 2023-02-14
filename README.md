@@ -1,6 +1,26 @@
 # TechniColour
 
-Yes it's colour with a U
+## Available Styles
+- Saber Style - Same as Notes, Gradient
+- Note Style - Off, Gradient, Warm/Cool, True Random
+- Obstacle Style - Off, Gradient, True Random
+- Bomb Style - Off, Gradient, True Random
+- Light Style - Off, Gradient
+
+
+## What Do the Offsets Do?
+The offsets in the settings change the starting position for the colour, examples of this below:
+
+Default Offset:
+
+https://user-images.githubusercontent.com/91820572/218704678-54a96921-abce-4829-9297-f22b60ed3c5a.mp4
+
+
+
+Customising Offset:
+
+https://user-images.githubusercontent.com/91820572/218704767-b67225ec-1718-469b-9dfd-6fda31221057.mp4
+
 
 ## Credits
 
