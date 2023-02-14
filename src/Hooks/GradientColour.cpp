@@ -62,6 +62,8 @@ MAKE_AUTO_HOOK_MATCH(GameplayCoreInstaller_InstallBindings, &GameplayCoreInstall
 
   PrecomputeGradientColours();
 
+  leftSaberPos = getModConfig().LeftSaberGradientOffset.GetValue();
+  rightSaberPos = getModConfig().RightSaberGradientOffset.GetValue();
   bombPos = getModConfig().BombGradientOffset.GetValue();
   leftNotePos = getModConfig().LeftNoteGradientOffset.GetValue();
   rightNotePos = getModConfig().RightNoteGradientOffset.GetValue();

@@ -58,27 +58,11 @@ namespace Technicolour::UI::MainMenuSetup
 
     void TechniView::WarmCoolPageDefault()
     {
-        LeftSaberWarmCoolOffsetDefault();
-        RightSaberWarmCoolOffsetDefault();
         LeftNoteWarmCoolOffsetDefault();
         RightNoteWarmCoolOffsetDefault();
     }
 
     // Warm/Cool Offset Default Buttons
-    void TechniView::LeftSaberWarmCoolOffsetDefault()
-    {
-        auto value = getModConfig().LeftSaberWarmCoolOffset.GetDefaultValue();
-        LeftSaberWarmCoolObject->set_Value(value);
-        getModConfig().LeftSaberWarmCoolOffset.SetValue(value);
-    }
-
-    void TechniView::RightSaberWarmCoolOffsetDefault()
-    {
-        auto value = getModConfig().RightSaberWarmCoolOffset.GetDefaultValue();
-        RightSaberWarmCoolObject->set_Value(value);
-        getModConfig().RightSaberWarmCoolOffset.SetValue(value);
-    }
-
     void TechniView::LeftNoteWarmCoolOffsetDefault()
     {
         auto value = getModConfig().LeftNoteWarmCoolOffset.GetDefaultValue();
@@ -187,12 +171,6 @@ namespace Technicolour::UI::MainMenuSetup
     void TechniView::set_LightGradientOffset(float value) { getModConfig().LightGradientOffset.SetValue(value); }
 
     // Warm/Cool Values
-    float TechniView::get_LeftSaberWarmCoolOffset() { return getModConfig().LeftSaberWarmCoolOffset.GetValue(); }
-    void TechniView::set_LeftSaberWarmCoolOffset(float value) { getModConfig().LeftSaberWarmCoolOffset.SetValue(value); }
-
-    float TechniView::get_RightSaberWarmCoolOffset() { return getModConfig().RightSaberWarmCoolOffset.GetValue(); }
-    void TechniView::set_RightSaberWarmCoolOffset(float value) { getModConfig().RightSaberWarmCoolOffset.SetValue(value); }
-
     float TechniView::get_LeftNoteWarmCoolOffset() { return getModConfig().LeftNoteWarmCoolOffset.GetValue(); }
     void TechniView::set_LeftNoteWarmCoolOffset(float value) { getModConfig().LeftNoteWarmCoolOffset.SetValue(value); }
 

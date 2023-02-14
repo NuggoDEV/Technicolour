@@ -42,7 +42,7 @@
                         <horizontal>
                             <slider-setting apply-on-change="true" text="Left Saber Offset"
                                 value="LeftSaberGradientOffset" id="LeftSaberGradientObject"
-                                show-buttons="true" digits="0" min="1" max="255" />
+                                show-buttons="true" digits="0" min="5" max="250" />
 
                             <button text="Default" on-click="LeftSaberGradientOffsetDefault"
                                 pref-width="15" />
@@ -53,7 +53,7 @@
                         <horizontal>
                             <slider-setting apply-on-change="true" text="Right Saber Offset"
                                 value="RightSaberGradientOffset" id="RightSaberGradientObject"
-                                show-buttons="true" digits="0" min="1" max="255" />
+                                show-buttons="true" digits="0" min="5" max="250" />
 
                             <button text="Default" on-click="RightSaberGradientOffsetDefault"
                                 pref-width="15" />
@@ -64,7 +64,7 @@
                         <horizontal>
                             <slider-setting apply-on-change="true" text="Left Note Offset"
                                 value="LeftNoteGradientOffset" id="LeftNoteGradientObject"
-                                show-buttons="true" digits="0" min="1" max="255" />
+                                show-buttons="true" digits="0" min="5" max="250" />
 
                             <button text="Default" on-click="LeftNoteGradientOffsetDefault"
                                 pref-width="15" />
@@ -75,7 +75,7 @@
                         <horizontal>
                             <slider-setting apply-on-change="true" text="Right Note Offset"
                                 value="RightNoteGradientOffset" id="RightNoteGradientObject"
-                                show-buttons="true" digits="0" min="1" max="255" />
+                                show-buttons="true" digits="0" min="5" max="250" />
 
                             <button text="Default" on-click="RightNoteGradientOffsetDefault"
                                 pref-width="15" />
@@ -86,7 +86,7 @@
                         <horizontal>
                             <slider-setting apply-on-change="true" text="Obstacle Offset"
                                 value="ObstacleGradientOffset" id="ObstacleGradientObject"
-                                show-buttons="true" digits="0" min="1" max="255" />
+                                show-buttons="true" digits="0" min="5" max="250" />
 
                             <button text="Default" on-click="ObstacleGradientOffsetDefault"
                                 pref-width="15" />
@@ -97,7 +97,7 @@
                         <horizontal>
                             <slider-setting apply-on-change="true" text="Bomb Offset"
                                 value="BombGradientOffset" id="BombGradientObject"
-                                show-buttons="true" digits="0" min="1" max="255" />
+                                show-buttons="true" digits="0" min="5" max="250" />
 
                             <button text="Default" on-click="BombGradientOffsetDefault"
                                 pref-width="15" />
@@ -108,7 +108,7 @@
                         <horizontal>
                             <slider-setting apply-on-change="true" text="Light Offset"
                                 value="LightGradientOffset" id="LightGradientObject"
-                                show-buttons="true" digits="0" min="1" max="255" />
+                                show-buttons="true" digits="0" min="5" max="250" />
 
                             <button text="Default" on-click="LightGradientOffsetDefault"
                                 pref-width="15" />
@@ -130,32 +130,9 @@
                 <vertical size-delta-x="5">
                     <stack>
                         <horizontal>
-                            <slider-setting apply-on-change="true" text="Left Saber Offset"
-                                value="LeftSaberWarmCoolOffset" id="LeftSaberWarmCoolObject"
-                                show-buttons="true" digits="0" min="1" max="255" />
-
-                            <button text="Default" on-click="LeftSaberWarmCoolOffsetDefault"
-                                pref-width="15" />
-                        </horizontal>
-                    </stack>
-
-                    <stack>
-                        <horizontal>
-                            <slider-setting apply-on-change="true" text="Right Saber Offset"
-                                value="RightSaberWarmCoolOffset" id="RightSaberWarmCoolObject"
-                                show-buttons="true" digits="0" min="1" max="255" />
-
-                            <button text="Default" on-click="RightSaberWarmCoolOffsetDefault"
-                                pref-width="15" />
-                        </horizontal>
-                    </stack>
-
-
-                    <stack>
-                        <horizontal>
                             <slider-setting apply-on-change="true" text="Left Note Offset"
                                 value="LeftNoteWarmCoolOffset" id="LeftNoteWarmCoolObject"
-                                show-buttons="true" digits="0" min="1" max="255" />
+                                show-buttons="true" digits="0" min="1" max="250" />
 
                             <button text="Default" on-click="LeftNoteWarmCoolOffsetDefault"
                                 pref-width="15" />
@@ -166,12 +143,16 @@
                         <horizontal>
                             <slider-setting apply-on-change="true" text="Right Note Offset"
                                 value="RightNoteWarmCoolOffset" id="RightNoteWarmCoolObject"
-                                show-buttons="true" digits="0" min="1" max="255" />
+                                show-buttons="true" digits="0" min="1" max="250" />
 
                             <button text="Default" on-click="RightNoteWarmCoolOffsetDefault"
                                 pref-width="15" />
                         </horizontal>
                     </stack>
+
+                    <macro.repeat count="5">
+                        <text text=" "/>
+                    </macro.repeat>
 
                     <horizontal>
                         <button text="Reset Warm/Cool Offsets to Default"
