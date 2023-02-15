@@ -16,7 +16,7 @@ void Technicolour::UI::MainMenuSetup::TechniFlow::DidActivate(bool firstActivati
 
     showBackButton = true;
     ProvideInitialViewControllers(TechniView, nullptr, nullptr, nullptr, nullptr);
-    SetTitle("Technicolour Tester Settings", ViewController::AnimationType::In);
+    SetTitle("Technicolour RC1 Settings", ViewController::AnimationType::In);
 }
 
 void Technicolour::UI::MainMenuSetup::TechniFlow::BackButtonWasPressed(ViewController *topViewController)
