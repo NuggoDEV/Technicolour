@@ -60,6 +60,8 @@ MAKE_AUTO_HOOK_MATCH(GameplayCoreInstaller_InstallBindings, &GameplayCoreInstall
 
   if (!firstActivation) return;
 
+  if (getModConfig().ForceDisableTechnicolour.GetValue()) return;
+
   PrecomputeGradientColours();
 
   leftSaberPos = getModConfig().LeftSaberGradientOffset.GetValue();
@@ -74,6 +76,8 @@ MAKE_AUTO_HOOK_MATCH(GameplayCoreInstaller_InstallBindings, &GameplayCoreInstall
 MAKE_AUTO_HOOK_MATCH(AudioTimeSyncController_Update, &AudioTimeSyncController::Update, void, AudioTimeSyncController *self)
 {
   AudioTimeSyncController_Update(self);
+
+  if (getModConfig().ForceDisableTechnicolour.GetValue()) return;
 
   if (!getModConfig().ModToggle.GetValue())
     return;

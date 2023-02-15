@@ -1,6 +1,10 @@
 #include "config-utils/shared/config-utils.hpp"
 
 DECLARE_CONFIG(ModConfig,
+    // Special Config Value - Not in UI
+    CONFIG_VALUE(ForceDisableTechnicolour, bool, "Changes value based on whether you've selected a Chroma dependant map or not.", false);
+
+
     CONFIG_VALUE(ModToggle, bool, "Mod Toggle Switch", false);
 
     // Style Values
