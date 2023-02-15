@@ -30,24 +30,33 @@ void PrecomputeWarmColours()
   {
     FastColor colour;
 
-    colour = FastColor::Lerp(FastColor(1.0f, 1.0f, 0.0f), FastColor(0.89f, 0.04f, 0.36f), (float)i / STEPS);
+    // Generate warm colors using a mix of red, orange, and yellow
+    colour = FastColor::Lerp(FastColor(1.0f, 0.0f, 0.0f), FastColor(1.0f, 0.5f, 0.0f), (float)i / STEPS);
+    colour = FastColor::Lerp(colour, FastColor(1.0f, 1.0f, 0.0f), (float)i / STEPS);
 
     warmColours[i] = colour;
   }
 }
+
+FastColor WarmColorGen(int index)
+{
+  return warmColours[index];
+}
+
 
 void PrecomputeCoolColours()
 {
   coolColours.resize(STEPS + 1);
   for (int i = 0; i < STEPS; i++)
   {
-    FastColor colour;
+    float t = (float)i / STEPS;
 
-    colour = FastColor::Lerp(FastColor(0.0f, 1.0f, 0.0f), FastColor(1.0f, 0.0f, 1.0f), (float)i / STEPS);
+    FastColor colour = FastColor::Lerp(FastColor(0.0f, 1.0f, 1.0f), FastColor(0.5f, 0.0f, 1.0f), t);
 
     coolColours[i] = colour;
   }
 }
+
 
 FastColor WarmGen(int index)
 {
@@ -65,6 +74,9 @@ bool LeftNoteWarmToggle, RightNoteCoolToggle, LeftSaberWarmToggle, RightSaberCoo
 MAKE_AUTO_HOOK_MATCH(WC_GameplayCoreInstaller_InstallBindings, &GameplayCoreInstaller::InstallBindings, void, GameplayCoreInstaller *self)
 {
   WC_GameplayCoreInstaller_InstallBindings(self);
+
+  if (getModConfig().ForceDisableTechnicolour.GetValue()) return;
+  
   PrecomputeWarmColours();
   PrecomputeCoolColours();
 
@@ -79,7 +91,9 @@ MAKE_AUTO_HOOK_MATCH(WC_AudioTimeSyncController_Update, &GlobalNamespace::AudioT
 {
   WC_AudioTimeSyncController_Update(self);
 
-  //if (!getModConfig().ModToggle.GetValue()) return;
+  if (getModConfig().ForceDisableTechnicolour.GetValue()) return;
+
+  if (!getModConfig().ModToggle.GetValue()) return;
 
   if (getModConfig().NoteStyle.GetValue() == "Warm/Cool")
   {
