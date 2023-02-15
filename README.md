@@ -1,5 +1,8 @@
 # TechniColour
 
+## Things To Note!
+This mod is not a complete port of the mod, various bits are missing and will hopefully be added in over time!
+
 ## Available Styles
 - Saber Style - Same as Notes, Gradient
 - Note Style - Off, Gradient, Warm/Cool, True Random
@@ -24,6 +27,7 @@ https://user-images.githubusercontent.com/91820572/218704767-b67225ec-1718-469b-
 
 ## Credits
 
+* [Aeroluna](https://github.com/Aeroluna) - [Original PC Mod](https://github.com/Aeroluna/Technicolor)
 * [zoller27osu](https://github.com/zoller27osu), [Sc2ad](https://github.com/Sc2ad) and [jakibaki](https://github.com/jakibaki) - [beatsaber-hook](https://github.com/sc2ad/beatsaber-hook)
 * [raftario](https://github.com/raftario)
 * [Lauriethefish](https://github.com/Lauriethefish), [danrouse](https://github.com/danrouse) and [Bobby Shmurner](https://github.com/BobbyShmurner) for [this template](https://github.com/Lauriethefish/quest-mod-template)
