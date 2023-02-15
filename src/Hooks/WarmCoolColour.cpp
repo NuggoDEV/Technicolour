@@ -75,7 +75,7 @@ MAKE_AUTO_HOOK_MATCH(WC_GameplayCoreInstaller_InstallBindings, &GameplayCoreInst
 {
   WC_GameplayCoreInstaller_InstallBindings(self);
 
-  if (getModConfig().ForceDisableTechnicolour.GetValue()) return;
+  if (getModConfig().ForceDisableTechnicolour.GetValue() || !getModConfig().ModToggle.GetValue()) return;
   
   PrecomputeWarmColours();
   PrecomputeCoolColours();
@@ -91,9 +91,7 @@ MAKE_AUTO_HOOK_MATCH(WC_AudioTimeSyncController_Update, &GlobalNamespace::AudioT
 {
   WC_AudioTimeSyncController_Update(self);
 
-  if (getModConfig().ForceDisableTechnicolour.GetValue()) return;
-
-  if (!getModConfig().ModToggle.GetValue()) return;
+  if (getModConfig().ForceDisableTechnicolour.GetValue() || !getModConfig().ModToggle.GetValue()) return;
 
   if (getModConfig().NoteStyle.GetValue() == "Warm/Cool")
   {

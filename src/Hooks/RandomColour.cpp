@@ -53,12 +53,12 @@ MAKE_AUTO_HOOK_MATCH(NoteController_Init, &NoteController::Init, void, NoteContr
 {
   NoteController_Init(self, noteData, worldRotation, moveStartPos, moveEndPos, jumpEndPos, moveDuration, jumpDuration, jumpGravity, endRotation, uniformScale, rotateTowardsPlayer, useRandomRotation);
 
-  if (getModConfig().ForceDisableTechnicolour.GetValue()) return;
+  if (getModConfig().ForceDisableTechnicolour.GetValue() || !getModConfig().ModToggle.GetValue()) return;
 
-  if (getModConfig().ModToggle.GetValue() && getModConfig().NoteStyle.GetValue() == "True Random" && noteData->colorType == ColorType::ColorA)
+  if (getModConfig().NoteStyle.GetValue() == "True Random" && noteData->colorType == 0)
     Chroma::NoteAPI::setInitialNoteControllerColorSafe(self, RandomColourGen());
 
-  else if (getModConfig().ModToggle.GetValue() && getModConfig().NoteStyle.GetValue() == "True Random" && noteData->colorType == ColorType::ColorB)
+  else if (getModConfig().NoteStyle.GetValue() == "True Random" && noteData->colorType == 1)
     Chroma::NoteAPI::setInitialNoteControllerColorSafe(self, RandomColourGen());
 }
 
@@ -66,9 +66,9 @@ MAKE_AUTO_HOOK_MATCH(BombController_Init, &BombNoteController::Init, void, BombN
 {
   BombController_Init(self, noteData, worldRotation, moveStartPos, moveEndPos, jumpEndPos, moveDuration, jumpDuration, jumpGravity);
 
-  if (getModConfig().ForceDisableTechnicolour.GetValue()) return;
+  if (getModConfig().ForceDisableTechnicolour.GetValue() || !getModConfig().ModToggle.GetValue()) return;
 
-  if (getModConfig().ModToggle.GetValue() && getModConfig().BombStyle.GetValue() == "True Random")
+  if (getModConfig().BombStyle.GetValue() == "True Random")
     Chroma::BombAPI::setBombColorSafe(self, RandomColourGen());
 }
 
@@ -76,9 +76,9 @@ MAKE_AUTO_HOOK_MATCH(ObstacleController_Init, &ObstacleController::Init, void, O
 {
   ObstacleController_Init(self, obstacleData, worldRotation, startPos, midPos, endPos, move1Duration, move2Duration, singleLineWidth, height);
 
-  if (getModConfig().ForceDisableTechnicolour.GetValue()) return;
+  if (getModConfig().ForceDisableTechnicolour.GetValue() || !getModConfig().ModToggle.GetValue()) return;
 
-  if (getModConfig().ModToggle.GetValue() && getModConfig().ObstacleStyle.GetValue() == "True Random")
+  if (getModConfig().ObstacleStyle.GetValue() == "True Random")
     Chroma::ObstacleAPI::setObstacleColorSafe(self, RandomColourGen());
 }
 

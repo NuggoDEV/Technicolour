@@ -77,10 +77,7 @@ MAKE_AUTO_HOOK_MATCH(AudioTimeSyncController_Update, &AudioTimeSyncController::U
 {
   AudioTimeSyncController_Update(self);
 
-  if (getModConfig().ForceDisableTechnicolour.GetValue()) return;
-
-  if (!getModConfig().ModToggle.GetValue())
-    return;
+  if (getModConfig().ForceDisableTechnicolour.GetValue() || !getModConfig().ModToggle.GetValue()) return;
 
   if (getModConfig().BombStyle.GetValue() == "Gradient")
   {
@@ -116,7 +113,7 @@ MAKE_AUTO_HOOK_MATCH(AudioTimeSyncController_Update, &AudioTimeSyncController::U
 
     Chroma::NoteAPI::setGlobalNoteColorSafe(LeftColour, RightColour);
 
-    if (getModConfig().SaberStyle.GetValue() == "Same as Note")
+    if (getModConfig().SaberStyle.GetValue() == "Same as Notes")
     {
       Chroma::SaberAPI::setGlobalSaberColorSafe(SaberType::SaberA, LeftColour);
       Chroma::SaberAPI::setGlobalSaberColorSafe(SaberType::SaberB, RightColour);
