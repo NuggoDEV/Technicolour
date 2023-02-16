@@ -98,8 +98,12 @@ MAKE_AUTO_HOOK_MATCH(WC_AudioTimeSyncController_Update, &GlobalNamespace::AudioT
     FastColor LeftNoteColour = WarmGen(leftNote), RightNoteColour = CoolGen(rightNote);
     Chroma::NoteAPI::setGlobalNoteColorSafe(LeftNoteColour, RightNoteColour);
 
-    Chroma::SaberAPI::setGlobalSaberColorSafe(0, LeftNoteColour);
-    Chroma::SaberAPI::setGlobalSaberColorSafe(1, RightNoteColour);
+    if (getModConfig().SaberStyle.GetValue() == "Same as Notes")
+    {
+      Chroma::SaberAPI::setGlobalSaberColorSafe(0, LeftNoteColour);
+      Chroma::SaberAPI::setGlobalSaberColorSafe(1, RightNoteColour);
+    }
+    
   
     
     // Left Note Int Increase
