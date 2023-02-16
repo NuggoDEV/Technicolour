@@ -89,43 +89,43 @@ namespace Technicolour::UI::MainMenuSetup
     void TechniView::RightSaberGradientOffsetDefault()
     {
         auto value = getModConfig().RightSaberGradientOffset.GetDefaultValue();
-        RightSaberGradientObject->text->SetText(std::to_string((int)value));
         getModConfig().RightSaberGradientOffset.SetValue(value);
+        RightSaberGradientObject->set_Value(value);
     }
 
     void TechniView::LeftNoteGradientOffsetDefault()
     {
         auto value = getModConfig().LeftNoteGradientOffset.GetDefaultValue();
-        LeftNoteGradientObject->set_Value(value);
         getModConfig().LeftNoteGradientOffset.SetValue(value);
+        LeftNoteGradientObject->set_Value(value);
     }
 
     void TechniView::RightNoteGradientOffsetDefault()
     {
         auto value = getModConfig().RightNoteGradientOffset.GetDefaultValue();
-        RightNoteGradientObject->set_Value(value);
         getModConfig().RightNoteGradientOffset.SetValue(value);
+        RightNoteGradientObject->set_Value(value);
     }
 
     void TechniView::ObstacleGradientOffsetDefault()
     {
         auto value = getModConfig().ObstacleGradientOffset.GetDefaultValue();
-        ObstacleGradientObject->set_Value(value);
         getModConfig().ObstacleGradientOffset.SetValue(value);
+        ObstacleGradientObject->set_Value(value);
     }
 
     void TechniView::BombGradientOffsetDefault()
     {
         auto value = getModConfig().BombGradientOffset.GetDefaultValue();
-        BombGradientObject->set_Value(value);
         getModConfig().BombGradientOffset.SetValue(value);
+        BombGradientObject->set_Value(value);
     }
 
     void TechniView::LightGradientOffsetDefault()
     {
         auto value = getModConfig().LightGradientOffset.GetDefaultValue();
-        LightGradientObject->set_Value(value);
         getModConfig().LightGradientOffset.SetValue(value);
+        LightGradientObject->set_Value(value);
     }
 
     bool TechniView::get_ModToggle() { return getModConfig().ModToggle.GetValue(); }

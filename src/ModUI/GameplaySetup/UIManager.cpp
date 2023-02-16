@@ -33,4 +33,7 @@ namespace Technicolour::UI::Gameplay
 
     bool UIManager::get_ModToggle() { return getModConfig().ModToggle.GetValue(); }
     void UIManager::set_ModToggle(bool value) { getModConfig().ModToggle.SetValue(value); }
+
+    bool UIManager::get_ForceTechnicolour() { return getModConfig().ForceTechnicolour_UI.GetValue(); }
+    void UIManager::set_ForceTechnicolour(bool value) { getModConfig().ForceTechnicolour_UI.SetValue(value); }
 }

@@ -25,6 +25,12 @@ MAKE_AUTO_HOOK_MATCH(Level, &StandardLevelDetailView::RefreshContent, void, Stan
     {
         bool chromaReq = std::any_of(requirements.begin(), requirements.end(), [](auto const& s) { return s == ChromaReq; });
 
+        if (getModConfig().ForceTechnicolour_UI.GetValue())
+        {
+            getModConfig().ForceDisableTechnicolour.SetValue(false);
+            return;
+        }
+
         if (chromaReq)
         {
             Chroma::CoreAPI::removeForceEnableChromaHooks(modInf());

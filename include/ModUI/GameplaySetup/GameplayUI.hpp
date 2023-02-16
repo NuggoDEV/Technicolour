@@ -10,6 +10,7 @@ DECLARE_CLASS_CODEGEN(Technicolour::UI::Gameplay, UIManager, Il2CppObject,
     DECLARE_INSTANCE_FIELD(HMUI::ViewController*, settingsViewController);
     
     DECLARE_BSML_PROPERTY(bool, ModToggle);
+    DECLARE_BSML_PROPERTY(bool, ForceTechnicolour);
     DECLARE_INSTANCE_METHOD(void, OpenTechnicolour);
     
     

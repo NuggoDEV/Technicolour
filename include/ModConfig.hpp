@@ -6,6 +6,7 @@ DECLARE_CONFIG(ModConfig,
 
 
     CONFIG_VALUE(ModToggle, bool, "Mod Toggle Switch", false);
+    CONFIG_VALUE(ForceTechnicolour_UI, bool, "Allows Technicolour to run in Chroma maps", false);
 
     // Style Values
     CONFIG_VALUE(NoteStyle, std::string, "Makes Notes Colourful :D", "Off");
